@@ -1,39 +1,6 @@
 $(document).ready(function() {
 
-    // скрипт с последними изменениями
-    //   $.session.set('some key', 'a value');
-
-    // $.session.get('some key');
-    // > "a value"
-
-    // $.session.clear();
-
-    // $.session.get('some key');
-    // > undefined
-
-    // $.session.set('some key', 'a value').get('some key');
-    // > "a value"
-
-    // $.session.remove('some key');
-
-    // $.session.get('some key');
-    // > undefined
-
-
-    //var a = new Array('1','2','3');
-
-    //$.session.set('array', a);
-
-
-    // $('.at-stylize-input').each(function(){
-
-    // if($.session.get('flag_selects_active') !== 'flag_selects_active')
-
-    //   $(this).attr('checked','checked');
-
-    // });
-
-
+    // скрипт с последними изменениями и удалением лишних комментов в начале файла
 
     $('.at-stylize-label').live('click', function() {
         $('#id-collection-select .not-delete').removeClass('not-delete');
@@ -733,11 +700,15 @@ $(document).ready(function() {
     setTimeout(function() { $('.art-nav li.art-parent').hover(initem, outtem); }, 1500);
     setTimeout(function() { $('.art-nav li.art-parent').hover(initem, outtem); }, 2500);
 
-    function initem() { $(this).prev('li').css('color', '#3B3D47');
-        $(this).next('li').css('color', '#3B3D47'); }
+    function initem() {
+        $(this).prev('li').css('color', '#3B3D47');
+        $(this).next('li').css('color', '#3B3D47');
+    }
 
-    function outtem() { $(this).prev('li').css('color', '#b4b4b7');
-        $(this).next('li').css('color', '#b4b4b7'); }
+    function outtem() {
+        $(this).prev('li').css('color', '#b4b4b7');
+        $(this).next('li').css('color', '#b4b4b7');
+    }
 
     /////////////////////////////////
 
@@ -791,13 +762,17 @@ $(document).ready(function() {
 
 
     // сворачивание блоков фильтра в подборе
-    function blockFlowUp() { $('.block-flow').slideUp(1000);
+    function blockFlowUp() {
+        $('.block-flow').slideUp(1000);
         $('.art-close-filter a').text("развернуть фильтр");
-        $('.art-close-filter').addClass('to-bottom'); }
+        $('.art-close-filter').addClass('to-bottom');
+    }
 
-    function blockFlowDown() { $('.block-flow').slideDown(1000);
+    function blockFlowDown() {
+        $('.block-flow').slideDown(1000);
         $('.art-close-filter a').text("свернуть фильтр");
-        $('.art-close-filter').removeClass('to-bottom'); }
+        $('.art-close-filter').removeClass('to-bottom');
+    }
 
     $('.art-close-filter').toggle(blockFlowDown, blockFlowUp);
 
