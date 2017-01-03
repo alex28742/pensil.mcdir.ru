@@ -1,0 +1,3091 @@
+/*прелоадер*/
+#page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #3B3D47;
+    z-index: 100500;
+}
+
+
+
+#page-preloader .spinner {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: url('/wa-data/public/shop/themes/profitbuy/img/2.gif') no-repeat 50% 50%;
+    margin: -16px 0 0 -16px;
+}
+
+/**********************************************************/
+
+/*скрываем текст возле логотипа*/
+a#logo .logo-text {
+    display: none;
+}
+
+/*шрифт и жирность для номеров телефонов и текста под ними в хедере*/
+.art-li1 a, .art-li2 a, .art-li1 .hint{
+  font-family: "Myriad Pro_SemiBold";
+}
+
+.art-li2{
+    padding-left: 50px !important;
+}
+
+.tel_size{
+    font-size: 30px !important;
+}
+
+/*кнопку "заказать обратный звонок" оставляем обычной*/
+.art-li2 .hint a{
+    font-weight:normal;
+    left: 50px !important;
+}
+
+.art-li2 .hint a:hover{
+  color: #F55118;
+}
+
+/*кнопки "заказать обратный звонок" и "Бесплатный звонок по РФ"*/
+.art-li1 .hint, .art-li2 .hint a {
+    font-size: 12.88px;
+    /*двигаем кнопки*/
+    position: absolute;
+    left: 2rem;
+}
+
+/*.art-li1 и .art-li2 позиционируем чтобы пододвинуть кнопки в них левее*/
+.art-phones-wrapper li{
+    position:relative;
+}
+
+/*делаем отступы у всего хедера сверху и снизу*/
+.art-header-line .art-left-head, .art-header-line .art-center-head, .art-header-line .art-right-head{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.art-header-line .art-left-head{
+    padding-left: 27px;
+    padding-right: 27px;
+}
+
+/*задаем фиксированную высоту блоку с телефонами и адресом чтобы выровнять блоки по центру*/
+.art-header-line .art-center-head, .art-header-line .art-right-head{
+    height: 117px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+}
+
+/*убираем отступ блока с адресом, чтобы смотрелось ровно*/
+.art-header-line .art-right-head{
+    padding-right: 0;
+}
+
+/*убираем рамку адреса наверху и выравниваем по центру*/
+.art-header-line .art-offline-wrapper{
+    border: none;
+    padding: 10px 0px 0px;
+}
+
+/*заглавные буквы и шрифт как в шаблоне*/
+.art-workhours{
+    text-transform: uppercase;
+    font-family: "Myriad Pro_Semibold";
+    font-size: 12.88px;
+}
+
+/*цвет метки карты*/
+.art-right-head .art-offline-wrapper i{
+    color: #3b3d47;
+    margin-top: 0
+}
+
+/*стиль текста "коломна, ул.зайцева"*/
+.art-right-head .art-offline-wrapper span{
+    font-family: "Myriad Pro_Semibold";
+    font-size: 18px;
+}
+
+/*блок главного меню*/
+.art-nav{
+    background-color: #3b3d47;
+    height: 100%;
+    border-bottom: none;
+}
+
+/*стили ссылок в гл. меню*/
+.art-base-menu > li > a{
+    color: #b4b4b7;
+    font-size:18.05px;
+    font-family: "Myriad Pro";
+    font-weight: normal !important;
+    letter-spacing: 1px;
+}
+
+.art-row-no-border{
+    background-color: #e0e0e0;
+    margin-bottom: 178px;
+    margin-top: 78px;
+    border: none !important;
+}
+
+.art-plugin-quickorder{
+
+}
+
+.art-oform-wrapper {
+    padding: 20px 77px 20px 81px;
+}
+
+.cart-summary-page .art-plugin-quickorder{
+  padding: 0;
+}
+
+.art-cart-checkout{
+  padding: 0 24px 0 0 !important;
+}
+
+.art-oform-wrapper{
+  background-color: #fff;
+}
+
+
+
+
+
+.art-cart-checkout input{
+    background-color: #f55118 !important;
+    font-size: 17.29px !important;
+    font-weight: normal;
+    font-family: "Myriad Pro_Semibold";
+}
+
+
+/*.art-base-menu .art-parent{*/
+/*     background: url("/wa-data/public/site/themes/profitbuy/img/razdelitel.png") no-repeat scroll left center, rgba(0, 0, 0, 0) url("/wa-data/public/site/themes/profitbuy/img/razdelitel.png") no-repeat           scroll right center;*/
+/*}*/
+
+.art-base-menu{
+    height:100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+   -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+}
+
+/*.art-base-menu .art-parent:before{*/
+/*    content: "|";*/
+/*}*/
+
+/*стиль разделителей*/
+.art-nav-left .art-base-menu .art-razdelitel{
+    color: #b4b4b7;
+    font-family: "Myriad Pro";
+    font-size: 18.05px;
+    cursor: default;
+    border: none;
+}
+
+/*не подсвечиваем разделеители*/
+.art-nav-left .art-base-menu .art-razdelitel:hover{
+    background-color: transparent;
+}
+
+/*убираем последний разделитель*/
+.art-base-menu .art-razdelitel:last-child {
+    display: none;
+}
+
+/*высота меню как в шаблоне*/
+.art-nav .art-nav-left{
+    height: 80px;
+   /* display: -webkit-flex;*/
+   /* display: -moz-flex;*/
+   /* display: -ms-flex;*/
+   /* display: -o-flex;*/
+   /*-webkit-align-items: center;*/
+   /* align-items: center;*/
+   /* display: flex;*/
+}
+
+.art-nav-right{
+    height: 80px;
+     display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+   -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+}
+
+/*прижимаем к краю блок с поиском*/
+.art-nav .art-nav-right{
+    padding-right: 0;
+}
+
+/*прижимаем к краю блок с логотипом*/
+.art-nav .art-nav-left{
+    padding-left: 0;
+}
+
+.art-nav-left .art-parent, .art-nav-left .art-razdelitel, .art-base-menu .parent{
+    height:100%;
+      display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+   -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+}
+
+/*стили поиска в меню*/
+.art-search-wrapper input{
+    border-radius: 0;
+    background-color: #3b3d47;
+    border: 1px solid #74767d;
+    padding-right: 3.3rem;
+    padding-left: 5px;
+    width: 100%;
+    height: 29px;
+    color: #b4b4b7;
+}
+
+/*фиксируем кнопку поиска*/
+.art-search-wrapper button{
+    right: 0;
+    top: 18%;
+}
+
+/*иконка поиска*/
+.art-search-wrapper button i{
+    color: #74767d;
+}
+
+/*делаем блок с поиском на всю ширину сетки*/
+.art-wrap-als{
+    width: 100%;
+}
+
+/*прижимаем слайдер к контенту*/
+.art-maincontent .art-global-promo-slider{
+    margin-bottom: 0;
+}
+
+/*выравниваем контент слайдера по центру*/
+.art-global-promo-slider .art-gps-bxslider .art-gps-user-caption, .art-global-promo-slider .art-gps-bxslider .art-gps-user-body{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+/*заголовок слайдера как в шаблоне*/
+.art-global-promo-slider .art-gps-bxslider .art-gps-user-caption h3{
+    background-color: transparent;
+    color: #e1e1e1;
+    font-size: 148.04px;
+    font-family: "TimesNewRoman";
+}
+
+/*подзаголовок слайдера как в шаблоне*/
+.art-global-promo-slider .art-gps-bxslider .art-gps-user-body{
+    background-color: transparent;
+    color: #e1e1e1;
+    font-size: 76.06px;
+    text-transform: uppercase;
+    font-family: "TimesNewRoman";
+    position: relative;
+    bottom: 23px;
+}
+
+/*черта в тексте слайдера*/
+.art-hr{
+    background-color: #e1e1e1;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 2px;
+    width: 264px;
+    position: relative;
+    bottom: 27px;
+}
+
+/*убираем округление у слайдера*/
+.art-global-promo-slider .bx-viewport{
+    border-radius: 0 !important;
+}
+
+/*прижимаем контент к меню*/
+.art-maincontent{
+    padding-top: 0 !important;
+}
+
+
+/*прижимаем сайдбар к слайдеру*/
+.art-maincontent nav.sidebar{
+    padding-right: 0;
+}
+
+
+
+.art-base-menu-sidebar .art-parent a{
+    padding-left: 27px !important;
+}
+
+.art-base-menu-sidebar .art-level-ul .art-parent:first-child {
+    border-top: medium none;
+}
+.art-base-menu-sidebar .art-level-ul .art-parent{
+    border-top: 1px solid #63646c;
+   margin: 0 27px !important;
+}
+
+.art-base-menu-sidebar .art-parent .art-level-ul .art-parent a {
+    padding-left: 0 !important;
+    text-transform: none;
+}
+
+/*стили заголовков в сайдбаре*/
+.art-sidebar-group .art-base-menu-sidebar .art-parent a{
+    color:#cfcfd0;
+    font-family: "Myriad Pro";
+    padding-left: 0;
+    padding-right: 0;
+    text-transform: uppercase;
+    background-image: url('/wa-data/public/site/themes/profitbuy/img/iconset.png');
+    background-repeat: no-repeat;
+    background-position: right 12px;
+    font-size: 15.75px;
+}
+
+/*цвет списка заголовков сайдбара*/
+.art-sidebar-box .art-base-menu-sidebar{
+    background-color: #25262d;
+}
+
+/*цвет списка подзаголовков сайдбара*/
+.art-level-ul, .art-base-menu .parent ul {
+    background-color: #7d7e84;
+}
+
+/*при выпадающеп списке превращаемся в "минус"*/
+.art-sidebar-box .art-base-menu-sidebar .art-parent.active a {
+    background-position: right -18px;
+}
+
+/*стили подзаголовков в сайдбаре*/
+.art-level-ul .art-parent a{
+    text-transform: none;
+    color: #fff;
+}
+
+/*.art-base-menu a{*/
+/*    padding: 0 25px !important;    */
+/*}*/
+
+/*скрываем "плюсы" на горизонтальном меню и в выпадающем сайдбаре*/
+.art-base-menu-sidebar .art-parent .art-level-ul .art-parent a{
+    background-image: none;
+}
+
+.art-base-menu li.parent ul li.art-razdelitel{
+    display:none !important;
+}
+
+.art-base-menu li.parent ul li a{
+    color: #fff;
+}
+
+/*блок "о нас" под слайдером*/
+.art-about-us{
+    background-color: #f0f0f1;
+    margin-bottom: 0;
+    /*как просил клиент*/
+    /*height: 440px; */
+    height: 100%;
+}
+
+/*wrapper для выравнивания текста*/
+.art-wrapper-about{
+    padding: 84px 92px 69px 88px;
+}
+
+/*заголовок "о нас"*/
+.art-about-us h1{
+    text-transform: uppercase;
+    font-size: 36px;
+    font-family: "Myriad Pro";
+}
+
+/*текст блока "о нас"*/
+.art-about-body{
+    font-size: 15px;
+    font-family: "Myriad Pro";
+}
+
+/*"читать полностью"*/
+.art-about-body a, .art-about-body a:hover{
+    color: #f39985;
+}
+
+/*левая стрелка слайдера*/
+.art-maincontent .art-global-promo-slider .bx-controls-direction a.bx-prev{
+    position: absolute;
+    left:0;
+}
+
+/*правая стрелка слайдера*/
+.art-maincontent .art-global-promo-slider .bx-controls-direction a.bx-next{
+    position: absolute;
+    right:0;
+}
+
+/*черта в баннере*/
+.art-hr-banner{
+    width: 174px;
+    background-color: #e1e1e1;
+    position: relative;
+    top: 26px;
+}
+
+
+/*блок категорий снизу*/
+.art-wrapper-brands{
+    background-color: #e0e0e0;
+    padding-bottom: 48px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/*отступы блока с категориями*/
+.art-brands-wrap-line{
+    padding: 48px 0;
+}
+
+/*заголовок категории*/
+.art-category-title{
+    font-size:24px;
+    font-family: "Myriad Pro_Semibold";
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+}
+
+/*блок заголовка категории*/
+.art-category-title span{
+    background-color: #e0e0e0;
+    padding: 0 20px;
+}
+
+/*категория*/
+.art-brands-line{
+    border: 1px solid #b7b7ba;
+}
+
+/*wrapper блока с вопросом*/
+.art-wrap-question{
+    border: 1px solid #76787f;
+}
+
+/*блок с элементами вопроса*/
+.art-question-block {
+    /*position: relative;*/
+    padding: 48px 26px;
+    top: 46rem;
+}
+
+/*вопрос*/
+.art-question span{
+    text-transform: uppercase;
+    font-size: 29.48px;
+    font-family: "TimesNewRoman";
+    color: #aeaeb1;
+}
+
+/*блок с вопросом*/
+.art-question{
+    padding: 20px;
+    text-align: center;
+}
+
+/*черта в блоке с вопросом*/
+.art-hr-question{
+    width: 174px;
+    background-color: #e1e1e1;
+    bottom: 13px;
+    position: relative;
+    margin-bottom: 0;
+}
+
+/*отступ текста*/
+.art-text-question{
+    padding: 8px;
+}
+
+/*текст в блоке вопроса*/
+.art-text-question p{
+    text-align: center;
+    font-size: 18.4px;
+    font-family: "Myriad Pro";
+    color: #aeaeb1;
+    line-height: 20px;
+}
+
+/*сайдбар*/
+.art-sidebar-group{
+    border-radius: 0;
+    border: none;
+    background-color: #3b3d47;
+    background-image: url("/wa-data/public/site/themes/profitbuy/img/banner.jpg");
+    background-position: 0 360px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1906px;
+    margin-bottom: 0;
+}
+
+/*блок с выпадашкой*/
+.art-show-button{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    display: flex;
+    text-align:center;
+    position: relative;
+    top: 34px;
+}
+
+/* "смотреть всё" */
+.art-sehen-alles{
+    text-transform: uppercase;
+    background-color: #E0E0E0;
+    color: #3b3d47;
+    font-family: "Myriad Pro_Semibold";
+    padding: 0 18px;
+    font-size: 15px;
+}
+
+/*стрелка "смотреть всё"*/
+.art-strelka {
+    bottom: 7px;
+    position: relative;
+}
+
+/*блок с кнопкой обратного звонка*/
+.art-call-back{
+    padding: 12px;
+}
+
+/*wrapper для отступов*/
+.art-call-back-wrapper{
+    background-color: #e0e0e0;
+    text-align: center;
+    padding: 16px 0;
+    position: relative;
+}
+
+.art-call-back-wrapper:hover{
+    background-color: #f55118;
+}
+
+/*текст кнопки обратного звонка*/
+.art-call-back-wrapper a{
+    text-transform: uppercase;
+    font-size: 21.06px;
+    color: #3b3d47;
+    font-family: "Myriad Pro_Bold";
+}
+
+.art-call-back-wrapper a:hover{
+    color: #3b3d47;
+}
+
+/*стрелка кнопки обратного звонка*/
+.art-strelka-call-back{
+    background: url("/wa-data/public/site/themes/profitbuy/img/strelka_cb.png") no-repeat scroll center -21px;
+    height: 20px;
+    position: absolute;
+    top: -18px;
+    width: 100%;
+}
+
+.art-call-back-wrapper:hover .art-strelka-call-back{
+    background: url("/wa-data/public/site/themes/profitbuy/img/strelka_cb.png") no-repeat scroll center -1px;
+}
+
+.art-call-back-wrapper{
+    cursor: pointer;
+}
+
+/*статический подвал*/
+.art-hide-on-med-and-down{
+    background-color: #25262d;
+}
+
+/*цвет текста в статическом подвале*/
+.art-pane-left .art-addition-link, .art-cart-text {
+    color: #c7c7c7;
+    font-size: 14px;
+}
+
+/*цвет фона количества товаров в корзине в статическом подвале*/
+.art-hide-on-med-and-down .art-material-icons::after, .art-wrap-cartochka .art-add2cart .submit-wrapper .second-type{
+    background-color: #f55118;
+}
+
+/*цвет корзины в статическом подвале*/
+.art-hide-on-med-and-down .art-material-icons{
+     color: #c7c7c7;
+}
+
+/*скрываем блок с выбором валюты в статическом подвале*/
+.art-currency{
+    /*display: none;*/
+}
+
+/*прижимаем к правому краю блок с корзином в статическом подвале*/
+.art-pane-right .art-float-cart{
+    float: right;
+}
+
+/*кнопка "наверх"*/
+.art-back-top{
+    background-color: #797979 !important;
+    font-size: 36px;
+    font-family: "Myriad Pro";
+    padding: 0 19px 0 26px;
+}
+
+/*иконка "наверх"*/
+.art-back-top img{
+    padding-left: 10px;
+}
+
+/*подвал*/
+.art-globalfooter .art-footer-line{
+    border-top: none;
+    background-color: #3b3d47;
+}
+
+/*нижнеее меню*/
+.art-nav-pills{
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 0;
+}
+
+/*ниженее меню в подвале*/
+.art-nav-pills li{
+    float: left;
+}
+
+.art-for-first-coll{
+  padding-left: 0 !important;
+}
+
+.art-block2 .art-collections,
+.art-block2 .col-otdelki,
+.art-block2 .col-diapason-cen,
+.art-block2 .buttons-block,
+.filter-podbor-pish .block1 .col-brends,
+.filter-podbor-pish .block1 .col-collections,
+.filter-podbor-pish .block1 .col-otdelki,
+.filter-podbor-pish .block1 .col-diapason-cen,
+.filter-podbor-pish .art-row-first .block-flow,
+.filter-podbor-pish .art-row-second .block-flow
+{
+  padding: 0 !important;
+}
+
+.thumbs .art-offers.no-avilable-list .price-wrapper{
+  padding: 0;
+  text-align: center;
+}
+
+/*стили ссылок в нижнем меню*/
+.art-nav-pills li a{
+    color:#89898e;
+    text-transform: uppercase;
+    font-size: 18.05px;
+    font-family: "Myriad Pro";
+    padding: 0 15px;
+}
+
+/*разделители в нижнем меню*/
+.art-razdelitel-down{
+    color: #89898e;
+    font-family: "Myriad Pro";
+    font-size: 18.05px;
+    cursor: default;
+    border: none;
+}
+
+/*убираем последний разделитель*/
+.art-razdelitel-down:last-child {
+    display: none;
+}
+
+/*блок соц. кнопки*/
+.art-social{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+}
+
+/*соц. кнопки*/
+.art-social-item{
+    float: left;
+}
+
+/*ссылки на соц. сети*/
+.art-social-item a{
+    padding: 0 10px;
+}
+
+
+/*текст копирайта*/
+.art-copyright span{
+    color: #89898e;
+    text-transform: uppercase;
+    font-size: 14.05px;
+    font-family: "Myriad Pro";
+}
+
+/*прижимаем к краю копирайт*/
+.art-copyright {
+    text-align: right;
+}
+
+/*приподнимаем значок копирайта*/
+.art-copyright-icon{
+    position: relative;
+    bottom: 2px;
+}
+
+/*убираем отступы у всех частей подвала, должно помочь для адаптивности*/
+.art-footer-line .art-down-left, .art-footer-line .art-down-middle, .art-footer-line .art-down-right{
+    padding:0;
+}
+
+
+/*убираем стрелки в выпадашке*/
+.art-parent .material-icons.mi-2x{
+    display:none;
+}
+
+ .art-nav .art-nav-left .art-base-menu > li.selected, .art-nav .art-nav-left .art-base-menu .art-parent:hover, .art-base-menu li.parent:hover{
+    background-color: #F04F18 !important;
+}
+
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////страница "акции"////////////////////////////////////////////////////////////////////////////////////////*/
+
+.art-akcii-img-wrap{
+    position: relative;
+}
+
+.art-akcii{
+    margin-bottom: 38px;
+}
+
+.art-akcii-text p{
+    font-size: 17px;
+    font-family: "Myriad Pro";
+    padding: 40px 0;
+    margin-bottom: 0;
+}
+
+.art-akcii-text span{
+    font-size: 17px;
+    font-family: "Myriad Pro";
+    color: #f55118;
+    font-weight: 600;
+}
+
+.art-akcii-img img{
+    width: 100%;
+}
+
+.art-hr-akcii{
+    background-color: #b3b3b3;
+}
+
+.art-akcii-caption, .art-akcii-down-text{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.art-akcii-caption b{
+    background-color: transparent;
+    color: #e1e1e1;
+    font-family: "TimesNewRoman";
+    font-size: 148.04px;
+}
+
+.art-akcii-hr-discount{
+    background-color: #e1e1e1;
+    bottom: 27px;
+    height: 2px;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    width: 264px;
+}
+
+.art-akcii-discount-text{
+    position: absolute;
+    top: 6%;
+    width: 100%;
+}
+
+.art-akcii-down-text{
+    background-color: transparent;
+    bottom: 23px;
+    color: #e1e1e1;
+    font-family: "TimesNewRoman";
+    font-size: 76.06px;
+    position: relative;
+    text-transform: uppercase;
+}
+                        /*************************************************************************************************************************************/
+
+/*////////////////////////////////////////////////////////////////////////////////страница "доставка"////////////////////////////////////////////////////////////////////////////////////////*/
+
+.art-dostavka-text p{
+    font-size: 17px;
+    font-family: "Myriad Pro";
+    padding: 40px 0;
+    margin-bottom: 0;
+}
+                            /*************************************************************************************************************************************/
+
+/*////////////////////////////////////////////////////////////////////////////////страница "подбор"////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*Заголовок категорий*/
+.art-category-name{
+    font-family: "Myriad Pro_Semibold";
+    font-size: 48px;
+    padding-left: 24px;
+}
+
+/*изображения категорий*/
+.art-category-img img{
+    width: 100%;
+}
+
+.art-category-img{
+    height: 227px;
+}
+
+/*фон заголовка категорий*/
+.art-sub-links .art-category-ssilka{
+    background-color: #3b3d47;
+    padding: 19px 8.5px 20px 10px;
+    position: relative;
+    top: 1px;
+}
+
+/*ссылки категорий*/
+.art-category-ssilka span, .art-category-ssilka span:hover{
+
+    font-family: "Myriad Pro_semibold";
+    color: #fff;
+    text-transform: uppercase;
+
+}
+
+/*блоки с категориями*/
+.art-sub-links{
+    margin-bottom: 40px;
+}
+
+/*текст под категориями*/
+.art-sub-links p{
+    font-family: "Myriad Pro";
+    font-size: 17px;
+}
+
+/*кнопка "перейти"*/
+.art-category-ssilka .art-button-fon{
+    background-color: #f55118;
+    padding: 5px 0;
+    text-align: center;
+}
+
+/*имя категории*/
+.art-category-ssilka .art-ssilka-name{
+   padding: 5px 0;
+}
+
+/*"коллекция"*/
+.art-product-list .t2 h2{
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/*название коллекции*/
+.art-product-list .t2 h2 span{
+    color: #f55118;
+    text-decoration: underline;
+}
+
+/*"отделка коллекции"*/
+.art-product-list .t4 h4{
+    font-size: 14px;
+    font-style: italic;
+}
+
+/*название отделки коллекции*/
+.art-product-list .t4 h4 span{
+    color: #f55118;
+     text-decoration: underline;
+}
+
+/*наименование ручки*/
+.art-pl-item-info-expandable .link a h5 span {
+    color: #26282f !important;
+    font-family: "Myriad Pro_semibold";
+    font-size: 17px;
+}
+
+.list .pl-item-info-expandable.art-pl-item-info-expandable .row-line{
+  display: -webkit-flex;
+  display: -ms-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+}
+
+.list .art-pl-item-info-expandable div.row-line div.link{
+  padding: 0 15px 0 20px;
+  width: 295px;
+}
+
+.list .type-uzel{
+    border-left: 1px solid #cbcbcb;
+    border-right: 1px solid #cbcbcb;
+    text-align: center;
+    height: 50px;
+    padding: 0 10px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+.list .pl-item-info-expandable.art-pl-item-info-expandable{
+  vertical-align: middle !important;
+  width: 60%;
+}
+
+.art-compare-remove{
+  text-align: center;
+}
+
+.list .art-offers{
+  vertical-align: bottom !important;
+  position: relative;
+  top: 1px;
+}
+
+.thumbs .art-offers{
+width: 202px;
+background-color: transparent !important;
+}
+
+.thumbs .line-collection.t2{
+    /*position: relative;*/
+    /*top: 2rem;*/
+}
+
+.thumbs .art-thumbs-down .submit-wrapper{
+      bottom: 0;
+      padding-left: 15px;
+      padding-top: 15px;
+      position: absolute;
+      right: -1px;
+      width: 60%;
+      background-color: #fff;
+}
+
+.art-product-list.thumbs {
+    padding: 28px;
+}
+
+.thumbs .line-collection h2{
+    padding: 38px 0 15px 6px;
+}
+
+.thumbs .line-collection h4{
+    padding: 15px 0 15px 6px;
+}
+
+.art-product-list.list .art-itemscope:hover{
+    box-shadow: none;
+}
+
+.art-itemscope{
+    margin: 18px 7px !important;
+}
+
+.thumbs .art-addition-wrapper{
+  padding-top: 10px;
+ position: relative;
+ right: 8px;
+ width: 30%;
+}
+
+.thumbs .art-thumbs-down, .list .art-no-count .art-addition-wrapper {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    position: relative;
+    top: 16px;
+}
+
+
+
+
+.list .art-thumbs-down{
+    padding-left: 15px;
+    background-color: #fff;
+}
+
+.list .art-thumbs-down .submit-wrapper input{
+    width: 145px;
+}
+
+
+
+.list .no-available-wrap-btn{
+  position: relative;
+  top: 8px;
+  float: right;
+}
+
+
+.thumbs .art-pl-item-info-expandable .item-typename{
+    font-family: 'Myriad Pro_Bold';
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+
+
+
+ul.product-list.thumbs li .pl-item-info-expandable{
+   min-height: 5.5em !important;
+}
+
+.list .art-thumbs-hr{
+    display: none;
+}
+
+.thumbs .art-thumbs-hr{
+    margin-bottom : 0;
+    margin-top: 0;
+    background-color: #c6c5c6;
+}
+
+
+.thumbs .art-pl-item-info .price_and_stock{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-flex-direction: row-reverse;
+    -webkit-justify-content: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+}
+
+
+
+.list .art-pl-item-info .price_and_stock .prise-wrapper .price,
+.list .art-pl-item-info .no-avilable-list .price-wrapper .price-noavilable{
+  font-size: 30.08px;
+  font-family: 'Myriad Pro_Bold';
+  font-weight: normal;
+}
+
+
+
+.list .art-pl-item-info .price_and_stock .prise-wrapper .price .ruble,
+.list .art-pl-item-info .no-avilable-list .price-wrapper .price-noavilable .ruble{
+  font-family: 'Myriad Pro';
+  text-transform: lowercase;
+}
+
+.thumbs .art-pl-item-info .price_and_stock .prise-wrapper{
+    width: 50%;
+    position: relative;
+    top: 5px;
+}
+
+.list .no-avilable-list .price-wrapper{
+  float: left;
+}
+
+.thumbs .art-pl-item-info .price_and_stock .stock-high{
+    width: 50%;
+    position: relative;
+}
+
+.thumbs .art-thumbs-count-text{
+    position: absolute;
+    bottom: 0;
+}
+
+.list .art-thumbs-count-text,
+.list .noavilable-text .art-thumbs-count-text{
+    font-size: 14.04px !important;
+}
+
+.bookmark .list .art-badge-wrapper img{
+  margin-left: 0 !important;
+}
+
+
+.list .art-thumbs-count-text.pre-order-als, .thumbs .art-thumbs-count-text.pre-order-als {
+    color: #b5b5b5;
+    font-family: "Myriad Pro_Semibold";
+    font-size: 17px;
+}
+
+.art-thumbs-price{
+    font-family: "Myriad Pro_bold";
+    font-size: 30px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+}
+
+.list .art-pl-item-info .price_and_stock{
+  position: relative;
+  top: 6px;
+}
+
+
+
+.thumbs .art-thumbs-price,
+.cart .art-thumbs-price{
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.art-foto-table td{
+  text-align: center !important;
+}
+
+.art-thumbs-price .ruble, .art-price-wrapper .ruble,
+.art-mini-cart-cap .ruble, .art-conf-tot .ruble,
+.art-float-cart .flying-cart-wrapper .flying-cart-block.align-left.clear-both .bold.cart-total .ruble,
+.art-cart-text .cart-total .ruble{
+    font-family: "Myriad Pro";
+    font-weight: normal;
+    text-transform: lowercase;
+}
+
+.art-thumbs-price .ruble:after,
+.art-rate .price.nowrap .ruble:after, .art-conf-tot .ruble:after,
+.art-total-price .ruble:after, .art-mini-cart-cap .ruble:after,
+.art-float-cart .flying-cart-wrapper .flying-cart-block.align-left.clear-both .bold.cart-total .ruble:after,
+.art-cart-text .cart-total .ruble:after,
+.list .art-pl-item-info .price_and_stock .prise-wrapper .price .ruble:after,
+.list .art-pl-item-info .no-avilable-list .price-wrapper .price-noavilable:after,
+.art-wrap-cartochka .art-price-wrapper span.price.nowrap span.ruble:after,
+.art-dialog-window .price-wrapper span .ruble:after{
+    content: '.';
+}
+
+
+
+.art-tr-wrap{
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.art-tr-wrap2{
+  border-top: 1px solid #b3b3b3;
+}
+
+
+                                /*************************************************************************************************************************************/
+/*////////////////////////////////////////////////////////////////////////////////страница "контакты"////////////////////////////////////////////////////////////////////////////////////////*/
+.art-contacts, .art-telefoni{
+    margin-bottom: 4rem;
+}
+
+
+
+.art-contact-caption{
+    font-family: "Myriad Pro";
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #3b3d47;
+}
+
+.art-contact-text{
+    font-family: "Myriad Pro";
+    font-size: 20px;
+    color: #3b3d47;
+}
+
+.art-bespl-zvonki{
+    font-family: "Myriad Pro";
+    font-size: 14px;
+    color: #828282;
+}
+
+
+                        /*************************************************************************************************************************************/
+
+/*////////////////////////////////////////////////////////////////////////////////карточка товара////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.art-cart-caption span{
+    font-family: "Myriad Pro_Semibold";
+    font-size: 48px;
+}
+
+.art-feature-button{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+}
+
+
+.hr-wrapp{
+    margin-bottom: 10px;
+}
+
+.art-top-wrapper, .art-top-wrapper .submit-wrapper, .art-nal, .art-kol-nalich, .art-feature-button, .art-choose, .art-wrap-label, .art-photo_and_social{
+    padding: 0 !important;
+}
+
+
+
+.art-top-wrapper{
+  border-bottom: 1px solid #a9a9aa;
+  padding-bottom: 13px !important;
+}
+
+.art-photo_and_social{
+  background-color: #fff;
+}
+
+.art-qty{
+    margin-top: 0;
+    position: relative;
+    bottom: 13px;
+    padding: 0 !important;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+
+}
+
+.art-nal{
+    margin-bottom: 0;
+}
+
+.art-nal .stock-label.stock-high{
+    font-size: 14px;
+    font-weight: normal;
+    font-family: "Myriad Pro_bold";
+}
+
+
+
+.art-wrap-cartochka .art-add2cart-wrap,
+.art-wrap-cena-und-kol{
+  padding: 0 !important;
+}
+
+.art-wrap-cartochka .art-kol-nalich{
+  display: -webkit-flex;
+  display: -ms-flex;
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  display: flex;
+}
+
+
+.art-dialog-window .art-hr-cart{
+  display: none;
+}
+
+.art-hr-cart{
+    margin-bottom: 0;
+    background-color: #a9a9aa;
+    position: relative;
+    bottom: 7px;
+}
+
+
+
+.art-qty-wrapper{
+    margin-top: 0;
+    margin-left: 18px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+.art-stocks{
+     margin-bottom: 0;
+}
+
+
+.art-wrap-cartochka .art-add2cart{
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.art-qty-text{
+    color: #26282f;
+    font-family: "Myriad Pro";
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+.art-wrap-nalichie, .art-option-item, .art-photo_and_social, .art-wrap-social, .art-colvo-wrap{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+
+
+.art-second-type{
+    height: 65px !important;
+    background-color: #F55118 !important;
+    width: 100%;
+}
+
+.art-dialog-window .art-second-type{
+  height: 59px !important;
+}
+
+.art-add2cart .art-addcart-col-grid8{
+    padding-right: 0px;
+}
+
+/*.art-selectable-articul{*/
+/*    border-top: 1px solid #a9a9aa;*/
+/*    padding-top: 5px;*/
+/*}*/
+
+.art-article, .art-value-article{
+    font-size: 18px;
+}
+
+.art-select-pish-uzel{
+    font-size: 17px;
+    font-family: "Myriad Pro";
+}
+
+.art-tip-uzla{
+     margin-left: 10px;
+}
+
+/*.art-tip-uzla .art-colgrid-label .art-at-stylize-label .at-stylize-box{*/
+/*    display: none;*/
+/*}*/
+
+.art-tip-uzla .art-colgrid-label {
+     padding-left: 8px;
+     padding-right: 0;
+}
+
+
+
+
+.art-at-stylize-button{
+    border: 1px solid #414042 !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    background-color: #efefef !important;
+    padding: 0 17px !important;
+    line-height: normal !important;
+    font-size: 14px;
+    font-family: "Myriad Pro";
+}
+
+.art-sku-feature{
+ background-color: transparent;
+ background-image: url("/wa-data/public/site/themes/profitbuy/img/strelka.png");
+ background-position: 95% center;
+ background-repeat: no-repeat;
+ border: 1px solid #414042;
+ color: #414042;
+ font-size: 17px;
+ height: 2rem;
+ padding: 0 17px;
+ -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+ width: 100%;
+}
+
+.art-at-stylize-button:hover{
+    background-color: #414042 !important;
+    color: #fff;
+}
+
+/*als*/
+.at-stylize-button.art-at-stylize-button.active{
+    background-color: #414042 !important;
+    color: #fff;
+}
+
+.art-table-cart{
+    margin-bottom: 0;
+}
+
+.art-wrap-cartochka .share-wrapper{
+    padding-left: 28px;
+}
+
+.art-table-cart tr .art-name-tab{
+    min-width: 169px !important;
+    padding-left: 30px;
+}
+
+.art-skrit-nav{
+  visibility: hidden;
+}
+
+.art-wrap-social{
+    padding-left: 34px;
+    margin-top: 10px;
+}
+
+.art-product-tab-active{
+    padding-left: 11px !important;
+}
+
+.art-social-cart{
+    list-style: outside none none;
+    padding-top: 3px;
+    padding-left: 5px;
+    margin-top: 0px;
+}
+
+.art-social-cart li{
+    float: left;
+}
+
+.art-social-item-cart a{
+    padding-right: 10px;
+}
+
+.art-cart-more-images{
+    display:none;
+}
+
+.art-zakladki{
+    text-align: right;
+}
+
+
+.art-breadcrumbs, .art-breadcrumbs a{
+    color: #3b3d47;
+    font-family: "Myriad Pro_Semibold";
+    font-size: 17px;
+    margin-top: 38px;
+}
+
+.art-breadcrumbs, .art-breadcrumbs a:hover{
+  color: #F55118;
+}
+
+.art-breadcrumbs .rarr {
+    padding: 0 8px;
+}
+
+.art-price-wrapper{
+    position: relative;
+    bottom: 14px;
+}
+
+.art-wrap-cartochka .art-korz-dialog{
+  position: absolute;
+  top: 11px;
+}
+
+.art-dialog-window .art-korz-dialog{
+  position: relative;
+  top: 11px;
+}
+
+.art-wrap-cartochka .art-top-wrapper{
+  position: relative;
+}
+
+
+.art-price-wrapper span{
+    font-family: 'Myriad Pro_Bold';
+    font-size: 48px !important;
+}
+
+.art-stock-low{
+    font-family: 'Myriad Pro_Bold';
+    font-size: 14px;
+    color: #f55118 !important;
+    font-weight: normal;
+}
+
+.art-kolvo {
+    font-family: "myriad pro";
+    font-size: 14px;
+    margin-right: 8px;
+    position: relative;
+    top: 13px;
+}
+
+.art-qty-plus, .art-qty-minus{
+    height: 33px;
+}
+
+.art-quantity{
+    margin: 0 12px;
+}
+
+.art-articul{
+    font-size: 18px;
+    font-family: "Myriad pro";
+}
+
+
+
+
+
+.art-value-article{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cart .art-choose {
+    font-family: "myriad pro";
+    font-size: 17px;
+    text-align: right;
+    padding-right: 46px !important;
+}
+
+.art-name-tab{
+    font-family: 'Myriad Pro_Bold';
+    font-size: 14px;
+}
+
+.art-value-tab{
+    font-size: 14px;
+    font-family: "myriad pro";
+}
+
+.art-product-sidebar{
+    padding: 24px 28px 0 30px;
+}
+
+.art-product-tab{
+    padding-right: 28px;
+    padding-bottom: 28px;
+}
+
+.art-cart-top, .art-cart-top div{
+    padding: 0 !important;
+}
+
+
+
+                            /*************************************************************************************************************************************/
+
+/*////////////////////////////////////////////////////////////////////////////////окно товара через класс .art-dialog-window////////////////////////////////////////////////////////////////////////////////////////*/
+.art-okno-caption{
+    font-size: 17px;
+    color: #282828;
+    font-family: 'Myriad Pro_semiBold';
+}
+
+.art-dialog-window .art-choose{
+  padding-right: 0 !important;
+}
+
+.art-dialog-window .dialog-close{
+    display:none;
+}
+
+.art-dialog-window .art-feature-button{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    display: flex;
+}
+
+.art-dialog-window .art-wrap-label, .art-dialog-window .art-choose{
+    width: 100% !important;
+}
+
+.art-dialog-window .art-more-dial{
+    width: 100% !important;
+    height: 45px;
+    line-height: 43px !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.art-dialog-window .art-more-dial:hover{
+    background-color: #f55118 !important;
+}
+
+.art-wrap-cartochka .art-more-dial{
+  display: none;
+}
+
+.art-dialog-window .art-choose{
+    margin-right: 0 !important;
+    text-align: inherit !important
+}
+
+.art-dialog-window .cart {
+    padding: 25px !important;
+}
+
+.art-dialog-window .art-quantity{
+    background-color: #efefef;
+}
+
+.art-dialog-window .art-wrap-cena-und-kol{
+    width: 50% !important;
+}
+
+.art-dialog-window .art-nal{
+    width: 100% !important;
+}
+
+.art-dialog-window .art-dialog-block {
+    border-right: 1px solid #b3b3b3;
+    height: 478px;
+}
+
+.art-dialog-window .art-right-teil .art-add2cart-wrap{
+  height: 478px;
+  position: relative;
+}
+
+.art-dialog-window .art-dialog-block .product-gallery #product-core-image{
+  padding: 0;
+}
+
+.art-dialog-window .art-dialog-block .product-gallery #product-gallery{
+  margin: 0
+}
+
+.art-dialog-window .art-kolvo{
+    top: 0 !important;
+}
+
+.art-dialog-window .art-korz-dialog{
+    width: 50% !important;
+}
+
+.art-dialog-window .art-qty{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    display: flex;
+    bottom: 0 !important;
+    text-align: left;
+
+}
+
+
+
+.art-dialog-window .art-qty-text{
+    padding-right: 0;
+}
+
+.art-dialog-window .art-qty-wrapper{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    display: flex;
+    margin-left: 0;
+}
+
+.art-dialog-window .art-wrap-nalichie{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-flex-direction: column-reverse;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+     flex-direction: column-reverse;
+    display: flex;
+    position: absolute;
+    top: 1rem;
+}
+
+
+.art-dialog-window .price-wrapper span{
+    font-size: 50.06px;
+    color: #3b3d47;
+}
+
+
+.art-dialog-window .art-add2cart{
+    position: relative;
+}
+
+
+
+.art-dialog-window .cart{
+    padding: 5rem 0 10px;
+}
+
+
+.art-dialog-window .art-addcart-col-grid5{
+    position: relative;
+    top: 1rem;
+}
+
+.art-dialog-window .art-add2cart{
+    padding-left: 0;
+}
+
+.art-dialog-window .art-option-item{
+    display: block;
+}
+
+
+
+
+
+.art-dialog-window .art-cart-button{
+    font-size: 18px;
+     padding: 0 44px;
+     margin-left: 11px;
+}
+
+.art-dialog-window .art-cart-button:hover{
+    background-color: #F55118;
+}
+
+.art-dialog-window .stock-low{
+    color: #f55118;
+}
+
+.art-dialog-window .art-at-stylize-label{
+    background-color: #efefef;
+}
+
+.art-dialog-window .art-cart-more-images{
+    display: block;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.art-dialog-window .art-cart-right{
+    border-left: 1px solid #b3b3b3;
+    padding-left: 25px;
+}
+
+
+                            /*************************************************************************************************************************************/
+
+/*////////////////////////////////////////////////////////////////////////////////фильтр////////////////////////////////////////////////////////////////////////////////////////*/
+ .feature-name.art-feature-name{
+     height: 30px;
+     font-size: 15px !important;
+ }
+
+ .filters{
+    background-color: #e0e0e0;
+    font-family: "Myriad Pro";
+ }
+
+ .filters form{
+     position: relative;
+ }
+
+ .feature-name {
+    color: #414042;
+    font-size: 17px;
+    font-family: 'Myriad Pro_Bold';
+}
+
+.art-feature-button .at-stylize-label{
+    display: none !important;
+}
+
+.at-stylize-label.art-at-stylize-label {
+    display: block !important;
+    margin: 5px 3.5px !important;
+    width: 47%;
+}
+
+.s-select{
+    background-color: transparent;
+    border: 1px solid #414042;
+    -webkit-appearance: none; /*Removes default chrome and safari style*/
+    -moz-appearance: none; /* Removes Default Firefox style*/
+    width: 97%;
+    padding: 0 17px;
+    height: 2rem;
+    background-image: url('/wa-data/public/site/themes/profitbuy/img/strelka.png');
+    background-repeat: no-repeat;
+    background-position: 95%;
+    font-size: 17px;
+    color: #414042;
+    font-family: 'Myriad Pro';
+    margin-left: 3px;
+}
+
+.filter-wrapper{
+    margin-top: 16px;
+}
+
+.col-brends, .block2, .block3{
+    border-right: 1px solid #a0a0a1;
+}
+
+.als-top{
+    padding-top: 32px;
+    margin-bottom: 0px !important;
+}
+
+.art-wrap-harki {
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
+
+.art-wrap-harki3{
+    padding-bottom: 25px;
+    padding-left: 25px;
+}
+
+
+
+
+
+
+.art-stylize{
+    text-transform: lowercase;
+    font-size: 17px;
+
+}
+
+.filter-podbor-pish input[type="radio"] + span{
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.filter-podbor-pish input[type="checkbox"] + span, .filter-podbor-pish input[type="radio"] + span {
+ background-color: #E0E0E0 !important;
+ cursor: pointer; /* Курсор в виде руки */
+}
+
+.filter-podbor-pish input[type="checkbox"]:checked + span,
+.filter-podbor-pish input[type="radio"]:checked + span,
+.checkout div.checkout-step.step-contactinfo .art-checkout-radio.at-stylize-label input.at-stylize-input:checked + span,
+.checkout div.checkout-step.step-contactinfo .art-checkout-contact .at-stylize-label input#create-user.at-stylize-input:checked + span,
+.checkout .at-stylize-label input.at-stylize-input:checked + span,
+.art-top-line div.col-grid.s12.m9.l8.features-row-inline div.row-item-features label.label.at-stylize-label .at-stylize-input:checked + span,
+.art-dialog-window .at-stylize-label input.at-stylize-input:checked + span{
+background: url('/wa-data/public/site/themes/profitbuy/img/galka.png') no-repeat center;
+background-color: #E0E0E0;
+}
+
+.art-top-line div.col-grid.s12.m9.l8.features-row-inline div.row-item-features label.label.at-stylize-label .at-stylize-input{
+    display: none;
+}
+
+
+.art-hr-filter{
+    background-color: #a0a0a1;
+    height: 2px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.button.third-type{
+    border: none;
+    background-color: #414042 !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 7px 55px !important;
+}
+
+.art-close-filter {
+    bottom: 47px;
+    left: 26px;
+    position: absolute;
+    background-image: url('/wa-data/public/site/themes/profitbuy/img/close_open_f.png');
+    background-repeat: no-repeat;
+    background-position: left 0;
+    height: 3%;
+    padding-left: 40px;
+}
+
+.art-close-filter.to-bottom{
+    background-position: left -33px;
+    height: 12%;
+}
+
+.art-close-filter a, .art-close-filter a:hover{
+    text-transform: uppercase;
+    color: #414042;
+    font-size: 24px;
+    font-family: 'Myriad Pro_Bold';
+    text-decoration: underline;
+    /*padding-left: 40px;*/
+    position: relative;
+    top: 10px;
+}
+
+
+
+
+.at-stylize-box{
+    border: 1px solid #414042;
+}
+
+.filters .ui-slider-horizontal .ui-widget-header{
+    height: 1px !important;
+    background: #414042 !important;
+    top: 0 !important;
+}
+
+.filters .ui-slider{
+    margin-top: 22px !important;
+}
+
+.filters .ui-widget-content .ui-state-default{
+    border: none !important;
+    background-color: #414042 !important;
+    height: 16px !important;
+    width: 16px !important;
+    border-radius: 8px !important;
+}
+
+.al-block{
+    width: 16%;
+}
+
+.art-als-min, .art-als-max{
+    font-size: 17px;
+    color: #414042;
+}
+
+.art-min-value, .art-max-value, .art-style-bum{
+    font-family: 'Myriad Pro_Bold';
+    font-size: 17px;
+}
+
+.art-prices-text{
+    width: 100% !important;
+}
+
+label input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+
+label input[type="radio"]:checked + .stylize-button, label input[type="checkbox"]:checked + .stylize-button {
+    box-shadow: 0 0 0 2px #ff8c18 inset;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 38px;
+    min-width: 40px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+label input[type="radio"] + .stylize-button, label input[type="checkbox"] + .stylize-button {
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 38px;
+    min-width: 40px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.art-banner-fon{
+    /*background: rgba(0, 0, 0, 0) url("/wa-data/public/site/themes/profitbuy/img/banner-fon.jpg");*/
+    background: no-repeat scroll center center;
+    height: 193px;
+
+}
+
+.bx-controls-direction{
+    visibility: hidden !important;
+}
+
+
+
+.choose-type, .art-tip-brand, .art-feature-name-item{
+    font-size: 17px;
+    color: #414042;
+}
+
+
+input.at-stylize-input[type="checkbox"] + .at-stylize-box{
+    top: 1px;
+    margin-left: 15px;
+    margin-right: 3px;
+}
+
+.filter-podbor-bum-belov span.at-stylize-box, .filter-podbor-pish span.at-stylize-box, .filter-podbor-nastol-acsess span.at-stylize-box{
+    margin-left: 0 !important;
+}
+
+input.at-stylize-input[type="checkbox"] + .at-stylize-box::after{
+    right: -2 !important;
+    bottom: -2 !important;
+}
+
+.art-reset-features a {
+    color: #414042;
+    font-family: "Myriad Pro_Bold";
+    text-decoration: underline #9e9d9e;
+    text-transform: uppercase;
+}
+
+.art-reset-features{
+    padding: 0 51px !important;
+    text-align: right;
+}
+
+.art-reset-features > a:hover {
+    color: #414042;
+    text-decoration: none;
+}
+
+.art-top-line, .art-top-line div{
+    padding: 0 !important;
+}
+
+.art-s-select{
+    margin-top: 15px;
+    padding: 0 11px;
+}
+
+.art-block2{
+    padding: 0 !important;
+}
+
+.art-prim-sbros{
+    text-align: center;
+    padding: 15px 0;
+}
+
+.art-prim-sbros #btn-filter-use{
+    background-color: #414042;
+    font-size: 17px;
+    font-weight: normal;
+    width: 65%;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.art-prim-sbros #clear-filters-expand{
+    background-color: transparent;
+    border: 1px solid #414042;
+    color: #414042;
+    font-size: 17px;
+    width: 65%;
+}
+
+.art-al-block{
+    padding-bottom: 14px !important;
+    padding-left: 38px !important;
+    padding-right: 38px !important;
+}
+
+.art-zakladki-caption{
+    font-family: "Myriad Pro_Semibold";
+    font-size: 48px;
+    text-transform: uppercase;
+    margin-bottom: 76px;
+    margin-top: 43px;
+    margin-left: 23px;
+}
+
+.art-krest{
+    font-size: 4rem !important;
+    color: #000;
+}
+
+.addition-wrapper .addition-button.added{
+  color: #333333 !important;
+}
+
+.list .no-available .pre-order-btn, .thumbs .no-available .pre-order-btn{
+    background-color: #7a7c86 !important;
+    cursor: default;
+    font-size: 12px;
+}
+
+.without-sidebar ul.product-list.thumbs > li {
+    width: 24.3%;
+}
+
+.without-sidebar ul.product-list.thumbs li input[type="button"],
+.without-sidebar ul.product-list.thumbs li input[type="submit"]{
+  padding: 0;
+}
+
+.without-sidebar .type-uzel,
+.only-list .type-uzel{
+  display: none;
+}
+
+
+
+
+.art-total{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+
+
+.art-total div{
+    font-family: "Myriad Pro_Bold";
+    font-size: 32px !important;
+}
+
+.art-b-u-dostavki{
+    font-family: "Myriad Pro_Semibold";
+    font-size: 18px;
+    color: #717481;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.art-cart-total{
+    padding-left: 5px;
+}
+
+.art-oform-but{
+    background-color: #f55118;
+    position: relative;
+    text-align: left;
+    width: 245px;
+}
+
+.art-oform-but input{
+    height: 47px !important;
+}
+
+.art-oform-but div{
+    position: absolute;
+    right: 32px;
+    top: 10px;
+}
+
+.art-dalee div{
+  position: absolute;
+  right: 30px;
+  top: 19px;
+}
+
+.art-oform-but div img, .art-dalee div img{
+  -moz-transform: rotate(90deg); /* Для Firefox */
+    -ms-transform: rotate(90deg); /* Для IE */
+    -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(90deg); /* Для Opera */
+    transform: rotate(90deg);
+
+}
+.art-total .ruble{
+    font-family: "Myriad Pro_bold";
+    text-transform: lowercase;
+}
+
+.art-row-first, .art-row-second{
+    margin: 0 !important;
+}
+
+.I_have_cart_wrap {
+    padding: 27px 45px 0;
+}
+
+.I_have_cart_wrap div{
+    text-align: right;
+}
+
+
+
+.I_have_cart_wrap div a{
+    text-transform: uppercase;
+    font-family: "Myriad Pro_semibold";
+    font-size: 24px;
+    color: #f55118;
+}
+
+.art-pl-item-wrapper{
+  padding-top: 17px;
+}
+
+.art-img-wrap-in-main a.img-item img{
+  height: 60px;
+}
+
+.bum-belov form div.art-close-filter{
+  height: 5%;
+}
+
+
+
+.acsess form div.art-close-filter{
+  height: 30px;
+}
+
+
+.art-product-list.expandable.colored.list li.art-itemscope div.pl-item-wrapper.art-pl-item-wrapper div.pl-item-info.art-pl-item-info div.price_and_stock div.stock-label.stock-high{
+    bottom: 25px;
+    position: relative;
+}
+
+.list .art-pl-item-image{
+    /*position: relative;
+    top: 10px;*/
+    width: 41% !important;
+    height: 84px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+}
+
+.list .art-pl-item-info{
+  width: 59% !important;
+}
+
+
+
+.art-clear-spisok,
+.art-maincontent div.container div.row-grid div#page-content.content.col-grid.s12 div.fill-background a.step-back{
+    text-transform: uppercase;
+    color: #3b3d47;
+    font-family: "Myriad Pro_semibold";
+    font-size: 17px;html body main.maincontent.art-maincontent div.container div.row-grid div#page-content.content.col-grid.s12.l9.without-sidebar article.global-promo-slider.art-global-promo-slider div.bx-wrapper div.bx-controls.bx-has-pager.bx-has-controls-direction div.bx-pager.bx-default-pager div.bx-pager-item a.bx-pager-link.active
+    background: rgba(0, 0, 0, 0) url("/wa-data/public/site/themes/profitbuy/img/clear.png") no-repeat scroll right 3px;
+    padding-right: 2rem;
+    margin-top: 23px !important;
+}
+
+.addition-link.blink::before{
+  background-color: #F55118 !important;
+}
+
+.art-step-back{
+  text-transform: uppercase;
+  color: #3b3d47;
+  font-family: "Myriad Pro_semibold";
+  padding-right: 2rem;
+  margin-top: 23px !important;
+}
+
+.art-step-back:hover{
+  color: #EE4F18;
+}
+
+.art-clear-spisok:hover{
+    background: rgba(0, 0, 0, 0) url("/wa-data/public/site/themes/profitbuy/img/clear.png") no-repeat scroll right -23px;
+    color: #3b3d47;
+}
+
+/*пагинация в слайдере*/
+.art-global-promo-slider .bx-has-controls-direction .bx-pager.bx-default-pager .bx-pager-item a.bx-pager-link.active{
+    background-color: #f55118 !important;
+    border-color: #f55118 !important;
+}
+
+/*пагинация в слайдере*/
+.art-global-promo-slider .bx-has-controls-direction .bx-pager.bx-default-pager .bx-pager-item a.bx-pager-link{
+  background-color: #fff !important;
+  height: 10px;
+  width: 10px;
+}
+
+.art-total-label{
+  font-family: "Myriad Pro_bold";
+  font-size: 36px;
+}
+
+.art-total-price{
+  font-family: "Myriad Pro_bold";
+  font-size: 36px;
+  color: #f55118;
+}
+
+.art-total-price .ruble{
+    font-family: "Myriad Pro_bold";
+    text-transform: lowercase;
+}
+
+.art-total-price .ruble:after{
+  content: ".";
+}
+
+.art-wrap-total .align-right:first-child{
+  padding-bottom: 12px;
+}
+
+.art-oform-btn{
+  position: relative;
+}
+
+.art-oform-btn input{
+  background-color: #f55118 !important;
+  font-family: "Myriad Pro_semibold";
+  font-size: 24px !important;
+  font-weight: normal;
+  height: 70px !important;
+  width: 345px;
+}
+
+.art-oform-btn div{
+  position: absolute;
+  right: 30px;
+  top: 24px;
+}
+
+.art-oform-btn div img{
+  -moz-transform: rotate(90deg); /* Для Firefox */
+    -ms-transform: rotate(90deg); /* Для IE */
+    -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(90deg); /* Для Opera */
+    transform: rotate(90deg);
+}
+
+.art-comment{
+  height: 140px !important;
+}
+
+.art-wrap-total {
+    padding-top: 29px;
+}
+
+
+
+
+ /*************************************************************************************************************************************/
+
+   .call-b-form{
+       width: 416px !important;
+   }
+                                                                                        /*заказать звонок*/
+.call-b-form div.call-b-header{
+    text-transform: uppercase;
+    font-family: "Myriad Pro_semibold";
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.call-b-form .call-b-input input[type="text"]{
+    height: 45px;
+    background-color: #fff;
+    color: #26282f;
+    font-family: "Myriad Pro_semibold";
+    font-size: 18px;
+    border: 1px solid #26282f;
+    width: 380px !important;
+    border-top: 6px solid #dfdfdf;
+    border-left: 4px solid #dfdfdf;
+    border-right: 0;
+    border-bottom: 0;
+    outline: 1px solid #000;
+    outline-style: solid;
+    margin: 38px 0 0 !important;
+}
+
+.call-b-form .call-b-input input:-moz-placeholder, input::-moz-placeholder{
+    color: #000;
+    font-family: "Myriad Pro";
+}
+
+#call-b-close-x{
+    display:none;
+}
+
+#call-b-submit{
+    width: 182px !important;
+    font-size: 24px;
+    height: 44px !important;
+    margin: 32px 0 0 !important;
+    font-family: "Myriad Pro";
+}
+
+.call-b-error{
+    margin: 5px !important;
+}
+
+
+/*************************************************************************************************************************************/
+
+
+                                                                                        /*форма оформления заказа*/
+
+.art-checkout-caption, .art-checkout-caption span, .art-checkout-caption:hover {
+  font-family: "Myriad Pro_semibold";
+  font-size: 36px;
+  color: #3b3d47;
+}
+
+.art-checkout-h2{
+  background-color: #e0e0e0 !important;
+}
+
+.art-checkout-radio .at-stylize-box{
+  border-radius: 0 !important;
+
+}
+
+.art-checkout-radio .at-stylize-box::after{
+  border-radius: 0 !important;
+  width: 15px !important;
+  height: 15px !important;
+  top: 25% !important;
+  left: 22% !important;
+  background-color: #fff !important;
+}
+
+.art-checkout-radio, .art-checkout-contact .wa-name{
+  font-family: "Myriad Pro";
+  font-size: 18px !important;
+  color: #3b3d47 !important;
+  float: none !important;
+}
+
+
+
+.art-checkout-contact .wa-value{
+  margin-left: 0 !important;
+}
+
+.art-checkout-contact .wa-value input{
+  height: 45px !important;
+  border-top: 6px solid #dfdfdf;
+  border-left: 4px solid #dfdfdf;
+  border-right: 0;
+  border-bottom: 0;
+  outline: 1px solid #414042;
+  outline-style: solid;
+  padding-left: 15px;
+  font-family: "Myriad Pro_Semibold";
+  font-size: 18px !important;
+  width: 380px;
+}
+
+.art-dalee{
+  position: relative;
+  width: 200px;
+}
+
+.art-dalee input{
+  background-color: #f55118 !important;
+  font-family: "Myriad Pro_Semibold";
+  font-size: 24px;
+  height: 60px;
+  width: 100% !important;
+  font-weight: normal;
+}
+
+.art-unforgive-registr {
+    text-align: center;
+}
+
+.art-unforgive-registr a, .art-reset-pass a{
+  font-size: 18px;
+  font-family: "Myriad Pro_Semibold";
+  color: #3b3d47;
+}
+
+.art-reset-pass .wa-value.wa-submit{
+    margin-left: 0;
+}
+
+.art-reset-pass input{
+  background-color: #f55118 !important;
+  font-family: "Myriad Pro_Semibold";
+
+}
+
+.art-unforgive-registr a:hover, .art-reset-pass a:hover{
+  color: #f55118;
+}
+
+.art-registr input{
+  background-color: #f55118 !important;
+  width: 100% !important;
+  font-weight: normal;
+  border:none !important;
+  outline:none !important;
+}
+
+.art-checkout-contact .art-checkout-radio.at-stylize-label span.at-stylize-box{
+  margin-left: 0;
+  background-color: #F2F2F2;
+}
+
+.art-checkout-radio.at-stylize-label > img {
+    left: 10px;
+    position: relative;
+    top: 4px;
+}
+
+.art-checkout-h2 a.hint.float-right.back{
+  display: none !important;
+}
+
+
+.art-checkout-contact div.wa-field div.wa-value label.art-checkout-radio.at-stylize-label input#create-user.at-stylize-input,
+.art-checkout-step-content .checkout-content .checkout-options.payment .at-stylize-label img.method-logo
+{
+    display: none;
+}
+
+.checkout-form .checkout-step-content.auth .art-checkout-radio.at-stylize-label span.at-stylize-box,
+.art-checkout-contact .art-checkout-radio.at-stylize-label span.at-stylize-box,
+.art-checkout-options .art-checkout-radio.at-stylize-label span.at-stylize-box,
+.art-checkout-options .art-caption-ship.at-stylize-label span.at-stylize-box,
+.art-checkout-step-content .checkout-content .checkout-options.payment li h3 label.at-stylize-label span.at-stylize-box
+{
+  border-color: #dfdfdf;
+  border-width: 6px 0 0 4px;
+  outline: 1px solid #414042;
+  height: 20px;
+  width: 20px;
+  border-radius: 0;
+}
+
+.art-registr-button{
+  color: #3b3d47 !important;
+   font-family: "Myriad Pro";
+   font-size: 18px !important;
+}
+
+.art-registr-button a, .art-registr-button a:hover{
+  color: #f55118;
+}
+
+.art-registr-button input{
+  background-color: #f55118 !important;
+  font-weight: normal;
+  border:none !important;
+  outline:none !important;
+}
+
+
+.art-rate{
+  text-align: left !important;
+  padding: 35px 0 40px 80px;
+    border: 1px solid #000;
+    width: 350px !important;
+}
+
+.art-caption-ship {
+    color: #F55118;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: "Myriad Pro_Semibold";
+    font-weight: normal;
+}
+
+.art-checkout-options{
+  padding-left: 0 !important;
+}
+
+.art-checkout-options li{
+  border-top: 1px solid #b3b3b3;
+  padding-top: 37px;
+  margin-bottom: 97px !important;
+}
+
+
+
+
+.art-checkout-options li:first-child{
+  border: none;
+}
+
+.art-checkout-options li p
+{
+  font-size: 18px !important;
+  font-family: 'Myriad Pro';
+  padding-right: 41rem;
+}
+
+.art-checkout-step-content .checkout-content ul.checkout-options.payment li p{
+  font-size: 18px;
+  font-family: 'Myriad Pro';
+}
+
+.art-rate .price.nowrap{
+    font-size: 36px;
+    font-family: "Myriad Pro_bold";
+    color: #F55118;
+    font-weight: normal;
+}
+
+.art-rate .price.nowrap .ruble{
+  font-family: "Myriad Pro_bold";
+  text-transform: lowercase;
+}
+
+.art-rate .cena{
+  font-family: "Myriad Pro_bold";
+  font-size: 36px;
+  color: #333333;
+}
+
+.art-rate .hint{
+  font-family: "Myriad Pro";
+  font-size: 18px;
+  color: #717481;
+}
+
+.art-rate .hint .est_delivery{
+  color: #333333;
+}
+
+.art-checkout-step-content{
+  padding-right: 0 !important;
+  padding-bottom: 60px !important;
+}
+
+.art-conf-pol
+{
+  font-family: "Myriad Pro";
+  font-size: 18px;
+  color: #26282f;
+}
+
+.art-conf-name{
+  font-family: "Myriad Pro_Bold";
+  font-family: 18px;
+  text-transform: uppercase;
+  color: #26282f;
+  font-weight: normal;
+}
+
+.art-conf-tot{
+  font-size: 20px;
+  font-family: "Myriad Pro_semiBold";
+}
+
+.art-comment{
+  border-color: #dfdfdf;
+  border-width: 6px 0 0 4px;
+  outline: 1px solid #414042;
+}
+
+.art-thank-you{
+  font-family: "Myriad Pro_semiBold";
+  font-size: 72px;
+  color: #3b3d47;
+}
+
+.art-success{
+  font-family: "Myriad Pro";
+  font-size: 17px;
+  color: #3b3d47;
+  margin-bottom: 0;
+}
+
+.art-number-order{
+  font-family: "Myriad Pro_Bold";
+  font-size: 30px;
+  color: #3b3d47;
+}
+
+.art-zuruckLaden-btn{
+  position: relative;
+  width: 30%;
+}
+
+.art-zuruckLaden-btn input{
+  background-color: #b1b1b5 !important;
+  height: 60px;
+  width: 383px;
+  border: none;
+  font-size: 24.71px;
+}
+
+.art-zuruckLaden-btn input:hover{
+  background-color: #F55118 !important;
+}
+
+.art-zuruckLaden-btn > div {
+  left: 12px;
+  position: absolute;
+  top: 17px;
+}
+
+.art-zuruckLaden-btn > div img{
+  -moz-transform: rotate(270deg); /* Для Firefox */
+    -ms-transform: rotate(270deg); /* Для IE */
+    -webkit-transform: rotate(270deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(270deg); /* Для Opera */
+    transform: rotate(270deg);
+}
+
+.zuruckCenter{
+  display: -webkit-flex;
+  display: -ms-flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  display: flex;
+}
+
+html body main.maincontent.art-maincontent div.container div.row-grid div#page-content.content.col-grid.s12 div.checkout div.checkout-step div.checkout-result.success div.plugin{
+  display: none;
+}
+
+html body main.maincontent.art-maincontent div.container div.row-grid div#page-content.content.col-grid.s12 article.row-grid.product-wrapper div#overview.product-info.col-grid.s12.l12 div.fill-background div#product-tabs div#product-tab-description.product-tab div#product-description p{
+ padding-right: 32rem;
+}
+                                /*************************************************************************************************************************************/
+
+
+
+
+/**************************************************************************     СПИСКИ  через .owl-stage-outer   *****************************************************************************/
+
+
+
+
+
+
+
+
+
+
+.owl-stage-outer .art-pl-item-info{
+  padding: 0 !important;
+}
+
+.owl-stage-outer .art-pl-item-info .art-offers{
+  left: 0;
+}
+
+
+.owl-stage-outer .art-offers .art-thumbs-down{
+  display: block;
+  position: absolute;
+  right: -2px;
+  bottom: 0;
+  background-color: #fff !important;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.owl-stage-outer .art-offers .price-wrapper{
+  padding-left: 15px;
+}
+
+.owl-stage-outer .art-offers .art-thumbs-down .submit-wrapper{
+  padding-left: 0;
+  background-color: transparent !important;
+  padding-top: 0;
+}
+
+.owl-stage-outer .art-pl-item-info-expandable{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.owl-stage-outer .art-thumbs-price{
+  font-size: 24px;
+}
+
+
+
+
+
+
+
+
+
+.owl-stage-outer .art-pl-item-info-expandable a h5 span{
+  color: #26282f !important;
+  font-family: "Myriad Pro_semibold";
+  font-size: 17px;
+}
+
+
+
+
+
+.owl-stage-outer .pl-item-wrapper{
+  height: 322px !important;
+}
+
+.owl-stage-outer .purchase.addtocart {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    position: relative;
+}
+
+.owl-stage-outer .art-addition-wrapper,
+.owl-stage-outer .stock-and-rating,
+.owl-stage-outer .no-avilable-list .noavilable-text{
+  display: none !important;
+}
+
+
+
+
+
+/**************************************************************************************************************************************************************/
+
+html body main.maincontent.art-maincontent div.container div.row-grid div#page-content.content.col-grid.s12 div.fill-background div.filters.sidebar-box.ajax form a.filters-reset{
+  display: none !important;
+}
+
+.related.fill-background h3 input.gray.hide-on-med-and-down:hover{
+  background-color: #F55118 !important;
+}
+
+.cart-summary-page .row{
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.cart-summary-page .related{
+  display: none;
+}
+
+.art-wrap-cartochka input[type="submit"]:disabled,
+.art-wrap-cartochka input[type="submit"]:disabled:hover{
+position: relative;
+bottom: 32px;
+}
+
+.cart-summary-page .art-item-name{
+  font-size: 17px;
+  font-family: "Myriad Pro_Semibold";
+  color: #3b3d47;
+  border-right: 1px solid #b3b3b3;
+}
+
+.cart-summary-page .art-item-name a, .cart-summary-page .art-item-name a:hover,
+.cart-summary-page .art-rashodnik span{
+  color: #3b3d47;
+}
+
+.cart-summary-page .art-pens-img, .cart-summary-page .art-item-name, .cart-summary-page .art-rashodnik,
+.cart-summary-page .art-item-qty, .cart-summary-page .art-item-total, .cart-summary-page .art-item-remove{
+    height: 96px;
+}
+
+.cart-summary-page .art-pens-img{
+  padding-right: 10px;
+}
+
+
+.cart-summary-page .col.item-remove{
+  margin-top: 0;
+}
+
+.cart-summary-page .art-item-total input{
+    height: 40px;
+    max-width: 40px;
+    text-align: center;
+    outline: 1px solid #000;
+    border-top: 6px solid #dfdfdf;
+    border-left: 4px solid #dfdfdf;
+    border-right: 0;
+    border-bottom: 0;
+    font-size: 30px;
+    font-family: "Myriad Pro_Semibold";
+}
+
+.cart-summary-page .art-item-qty{
+  margin-top: 0 !important;
+  border-right: 1px solid #b3b3b3;
+}
+
+
+.cart-summary-page .art-rashodnik .item-type{
+  font-size: 18px;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.cart-summary-page .art-rashodnik{
+    font-family: "Myriad Pro_bold";
+    font-size: 17px;
+     /*padding: 30px 10px;*/
+     border-right: 1px solid #b3b3b3;
+     text-align: center;
+}
+
+
+
+.cart-summary-page .items-img img{
+  height: 120px !important;
+  width: 120px !important;
+  top: -4px !important;
+}
+
+.cart-summary-page .art-pens-img img{
+  position: relative !important;
+}
+
+.cart-summary-page .art-item-name div, .cart-summary-page .art-rashodnik div{
+  padding: 0 10px;
+}
+
+.cart-summary-page .art-item-name,
+.cart-summary-page .art-rashodnik,
+.cart-summary-page .art-item-total,
+.cart-summary-page .art-item-remove{
+display: -webkit-flex;
+display: -ms-flex;
+-webkit-align-items: center;
+align-items: center;
+display: flex;
+}
+
+.cart-summary-page .art-rashodnik,
+.cart-summary-page .art-item-total{
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+
+
+ {
+    padding: 0 15px;
+    position: relative;
+    top: 17px;
+}
+
+.cart.cart-summary-page .art-pens-img img{
+  max-width: 100%;
+
+}
+
+.cart.cart-summary-page .item-thumb.pens-img.art-pens-img{
+  display: -webkit-flex;
+  display: -ms-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  display: flex;
+}
+
+                                                                            /*всплывающая мини-корзина*/
+
+.art-mini-cart-btn{
+  background-color: #DE4A16 !important;
+}
+
+.flying-cart-wrapper div#flying-cart ul li div.flying-cart-img{
+  display: none;
+}
+
+.art-mini-cart-cap{
+  padding: 10px !important;
+}
+
+.art-mini-cart-cap a{
+   font-family: "Myriad Pro_semibold";
+   font-size: 17px;
+   color: #DE4A16;
+}
+
+.art-mini-cart-cap a:hover{
+  color: #DE4A16;
+}
+
+.art-mini-cart-cap span.gray{
+  padding-left: 10px;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

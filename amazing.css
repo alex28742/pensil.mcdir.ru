@@ -1,0 +1,300 @@
+/**/
+.mask-hide{
+    opacity:0.2;
+}
+
+
+/*убираю на главной список*/
+section.sellerslist {
+    display: none;
+}
+
+
+
+
+/*заливка цветом баннера на главной*/
+.art-question-content {
+    background: #3b3d47 none repeat scroll 0 0;
+}
+
+/*скрываю описание товара в катрочках аксессуаров*/
+.thumbs .summary {
+    display: none;
+}
+
+/*размер фото в карточке временный стиль*/
+#product-core-image {
+    min-height: 365px;
+}
+
+/*стили для карзины*/
+
+.item-thumb.pens-img img {
+    height: auto !important;
+}
+
+.item-thumb.items-img img {
+    float: left;
+    height: 150px;
+    margin-left: 100px;
+    margin-top: -20px;
+    width: 150px;
+}
+
+.item-thumb.items-img img {
+    height: 150px;
+    margin-top: -39px;
+    width: 150px;
+}
+
+.paging-nav, .opacity-btn{
+  display: none !important;
+}
+
+/*пагинация*/
+.art-pagination {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: justify-content: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.art-pgn-left{
+    background: url('/wa-data/public/site/themes/profitbuy/img/pgn-left.png') no-repeat center;
+}
+
+.art-pgn-right{
+    background: url('/wa-data/public/site/themes/profitbuy/img/pgn-right.png') no-repeat center;
+}
+
+.art-pgn-left, .art-pgn-right {
+    background-color: #fff !important;
+    border: 1px solid #d1d1d1 !important;
+    padding: 21px !important;
+}
+
+.art-als-pagination{
+    text-align: center;
+}
+
+.pgn-btn {
+    border: 1px solid #cbcbcb;
+    padding: 5px 10px;
+}
+
+.pagination-text {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: center;
+    -webkit-justify-content: center;
+    padding: 5px 5px 5px 12px;
+}
+
+.art-pagination > input {
+    font-family: "Myriad Pro";
+    font-size: 24px;
+    text-align: center;
+    width: 25px;
+    border: 1px solid #d1d1d1;
+}
+
+.pagination-text span{
+    font-family: "Myriad Pro";
+    font-size: 24px;
+}
+
+/*выравнивание блока цены в листе у товара кот. нет в наличии*/
+.list .no-avilable-list {
+    /*display: flex !important;
+    display: -webkit-flex !important;*/
+    width: 100% !important;
+}
+
+
+
+/*строка текста: нет в наличии*/
+
+.thumbs .noavilable-text {
+    display: none;
+}
+
+.thumbs .price.nowrap.art-thumbs-price.price-noavilable {
+    left: 0;
+}
+
+
+
+
+/*скрытие заголовка товара в лист-тумб при наведении*/
+.art-itemscope:hover .item-typename{
+    display:none;
+}
+
+.space-top {
+    /*background: #cbcbcb none repeat scroll 0 0;*/
+    height: 665px;
+    /*opacity: 0.5;*/
+}
+
+
+/*скрываю таблицу характеристик*/
+.list table.features,.short-list table.features,.thumbs table.features {
+    display: none;
+}
+
+.pl-item-wrapper.art-pl-item-wrapper > span {
+    color: #000;
+    position: relative;
+    top: -3px;
+    z-index: 10001;
+}
+
+
+.t2 h2 {
+    margin-bottom: 0;
+}
+
+.t4 h4 {
+    padding-top: 20px;
+}
+
+.pl-item-info-expandable h5 {
+    margin: 0 !important;
+      word-wrap: break-word;
+}
+
+
+
+
+.list .type-uzel > span {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "Myriad Pro_bold";
+    word-wrap: break-word;
+    width: 76px;
+}
+
+
+.product-list.expandable.colored.list > li{
+    padding:0;
+}
+
+
+
+
+.list .addition-wrapper {
+    display: flex !important;
+    -webkit-display: flex !important;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+
+
+.list .second-type, .thumbs .second-type {
+    font-size: 14px;
+    background-color: #f55118 !important;
+    font-weight: normal;
+    font-family: "Myriad Pro_Semibold";
+}
+
+
+
+.list .product-list.expandable.colored.list > li {
+    padding: 3px;
+}
+
+
+
+
+
+
+
+.list .mdi-2x[class*="mdi-"]::before {
+    font-size: 1.7em;
+}
+
+.list .out-of-stock.top-align {
+    text-align: center;
+
+}
+
+.short-list .stock-label.stock-high{
+    display:none;
+}
+
+.short-list li .pl-item-info-expandable, ul.product-list.short-list li .offers {
+    display: table-cell;
+    vertical-align: baseline !important;
+}
+
+/*.short-list .row-line {*/
+/*    width: 800px;*/
+/*}*/
+
+.short-list .pl-item-info-expandable{
+    width: 800px;
+}
+
+.short-list .row-line {
+    display: flex;
+    -webkit-display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.short-list .price_and_stock {
+    width: 100px;
+}
+
+.short-list .out-of-stock.top-align {
+    /*position: relative;*/
+    /*top: -8px;*/
+}
+
+/*Скрываю склонированные элемнты пишущего узла*/
+.list .prise-wrapper .type-uzel {
+    display: none;
+}
+
+.short-list .prise-wrapper .type-uzel {
+    display: none;
+}
+
+.thumbs .row-line .type-uzel{
+    display:none;
+    font-size:0.9em;
+}
+
+
+
+
+.thumbs .type-uzel {
+    font-size: 1.2em;
+}
+
+
+.short-list .price_and_stock {
+    position: relative;
+    top: -5px;
+}
+
+.short-list .prise-wrapper {
+    padding-left: 50px;
+}
+
+.short-list .offers {
+    position: relative;
+    top: -8px;
+}
+
+.short-list .out-of-stock {
+    width: 190px;
+    padding-right:10px;
+}

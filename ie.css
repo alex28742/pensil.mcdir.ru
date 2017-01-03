@@ -1,0 +1,59 @@
+/*стили применимые только к IE*/
+ul.phones-wrapper li .hint{
+  display: block;
+}
+
+.s-select::-ms-expand{
+  display: none;
+}
+
+
+
+.art-checkout-contact .wa-field.wa-field-firstname.wa-required,
+.art-checkout-contact .wa-field.wa-field-phone.wa-required,
+.art-checkout-contact .wa-field.wa-field-email.wa-required,
+.art-checkout-contact .wa-field.wa-field-address.wa-field-address-shipping{
+  display: -webkit-flex;
+  display: -ms-flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  display: flex;
+}
+
+.cart-summary-page.cart .art-pens-img img{
+  width: 100%;
+}
+
+.art-search-wrapper button{
+  top: 16%;
+}
+
+
+.thumbs .art-pl-item-info-expandable .link a h5 span{
+font-size: 16px;
+}
+
+
+.cart-summary-page .art-item-total input{
+  margin-left: 20px;
+}
+
+
+
+.thumbs .art-pl-item-info .price_and_stock .prise-wrapper{
+  right: 10px;
+}
+
+.art-thumbs-price{
+  font-size: 27px;
+}
+
+.list .type-uzel > span{
+  width: 77px;
+}
+
+
+/*1366 - 1399*/
+@media screen and (min-width: 1366px) and (max-width: 1399px) {
+
+}

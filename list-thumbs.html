@@ -1,0 +1,422 @@
+{*{include file="debug.html"}*}
+{*проверка на служебные страницы Не категории товаров*}
+{$get_params = $smarty.server.REQUEST_URI}
+<div class="get" style="display:none">{$get_params|escape}</div>
+
+{$flag_in = true}
+
+{if !$flag_podbor}
+{*устанавливаю количество выводимого товара на странице*}
+{if !shopSort::setcookieVal('products_per_page',500)}<em>ошибка в передаче параметров куки<em>{/if}
+
+{elseif $flag_podbor}{*страница подбора*}
+{*<em>Страница подбора</em><br>*}
+{*устанавливаю количество выводимого товара на странице*}
+{$temp = shopSort::setcookieVal('products_per_page',500)}
+
+{/if}
+
+
+{*сортировка товара как задано в БД*}
+{if true}
+
+
+{*решение вопроса с пагинацией*}
+
+{$max_count_page = 600}{*продуктов на странице по умолчанию*}
+{if $theme_settings.products_max_count_page && $flag_podbor}{$max_count_page = $theme_settings.products_max_count_page}{/if}
+
+{$m_products = null}{*получаю массив всего товара в магазине*}
+
+{$m_products = shopGetProducts::getCategoryProducts($category.id)}
+
+
+
+{*<em>всего товаров в категории: {$products|@count}</em>*}
+
+
+
+
+{$categories = shopGetProducts::getCategoryBySort()}
+
+{$features = $wa->shop->features($products)}
+
+{$products = shopSort::getSortCategory($categories,$products)}
+
+{*разбиение на страницы отсортированного массива товаров*}
+{$page_p = shopGetProducts::getPageProducts($get_params,$max_count_page,$products,$category.id)}
+
+{*{include file="debug.html"}*}
+
+{*<br><em>на странице: {$page_p|@count}</em>*}
+
+{/if}{*====================================================================================================================================================*}
+
+{*{include file="debug.html"}*}
+
+{*страница закладки*}
+ {if strpos($get_params, "addition=bookmark")}
+        {$bookmark = true}
+        {include file="bookmark.js" inline}
+        {include file="bookmark.css" inline}
+{/if}
+
+
+{*=========================================================*}
+
+
+<!-- products thumbnail list view -->
+{$add2cart_label = '[`Add to cart`]'}
+{*if $wa->shop->cart->total() > 0}
+    {$add2cart_label = '[`Add to cart`]'}
+{else}
+    {$add2cart_label = '[`Buy`]'}
+{/if*}
+{$compare_p = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
+{$bookmark_p = waRequest::cookie('shop_bookmark', array(), waRequest::TYPE_ARRAY_INT)}
+
+{if !$flag_podbor}{*если это не страница подбора*}
+{$theme_settings.products_per_page = '240,480,960'}
+{else}
+{$theme_settings.products_per_page = '24,48,120'}
+{/if}
+
+{if !empty($plp)}
+<div class="row-grid plp">
+    <div class="table-grid">
+        {if !empty($sorting)}
+            <!-- sorting -->
+            {$sort_fields = [
+                'name' => '[`Name`]',
+                'price' => '[`Price`]',
+                'total_sales' => '[`Bestsellers`]',
+                'rating' => '[`Customer rating`]',
+                'create_datetime'=>'[`Date added`]',
+                'stock' => '[`In stock`]'
+            ]}
+            {if !isset($active_sort)}
+                {$active_sort = $wa->get('sort', 'create_datetime')}
+            {/if}
+
+            <div class="col-grid {if $theme_settings.pagination == 'paging'}s12{else}s6{/if}">
+                <span id="sort-name">[`Sort by`]:</span>
+                <select id="sorting">
+                    {if !empty($category) && !$category.sort_products}<option value="{$wa->currentUrl(0, 1)}"{if !$active_sort} selected="selected"{/if}>[`New & Popular`]</option>{/if}
+                    {foreach $sort_fields as $sort => $name}
+                    {$s_u = explode('"', $wa->shop->sortUrl($sort, $name, $active_sort)|replace:'&':'&amp;')}
+                    <option value="{$s_u[1]}">{$name}{if $active_sort == $sort}{if strpos($s_u[1], 'asc') !== false} &uarr;{elseif strpos($s_u[1], 'desc') !== false} &darr;{/if}{/if}</option>
+                    {if $active_sort == $sort}
+                        {if strpos($s_u[1], 'asc') !== false}
+                            <option value="{str_replace('asc', 'desc', $s_u[1])}" selected="selected" style="display: none;">{$name} &darr;</option>
+                        {elseif strpos($s_u[1], 'desc') !== false}
+                            <option value="{str_replace('desc', 'asc', $s_u[1])}" selected="selected" style="display: none;">{$name} &uarr;</option>
+                        {/if}
+                    {/if}
+                    {if $wa->get('sort') == $sort}{$wa->title( $wa->title()|cat:' — '|cat:$name)}{/if}
+                    {/foreach}
+                </select>
+            </div>
+        {/if}
+        {if !$flag_podbor}
+        {$test_str = "240,480,960"}
+        {else}
+        {$test_str = "24,48,120"}
+        {/if}
+
+        {if $theme_settings.pagination == 'paging' && !empty($theme_settings.products_per_page) && empty($addition)}
+            {$pppc = waRequest::cookie('products_per_page', 30, 'TYPE_INT')}{*30*}
+            <div class="col-grid s6">
+                <span id="pagination-count-name">[`Show by`]:</span>
+                {$pppc_url = $wa->currentUrl()|regex_replace:"/&*page=([0-9]*)&*/i":""}
+                <select id="products-per-page">
+                    {foreach explode(',', 30) as $x}{*$theme_settings.products_per_page*}
+                        <option{if $pppc == $x} selected="selected"{/if} value="{$pppc_url}" data-pppc="{$x}">{sprintf('[`%s products`]', $x)}</option>
+                    {/foreach}
+                </select>
+            </div>
+        {/if}
+
+        {if !empty($select_view)}
+            <div class="col-grid s6{if empty($sorting) && $theme_settings.pagination == 'lazyloading'} offset-s6{/if} align-right">
+                <ul id="select-view">
+                <!-- NOTE:  изменил правила отображения в зависимости от типа товара (было {if $select_view == 'short-list'} selected{/if})-->
+                    <li class="thumbs{if $pens_cat_flag != 1} selected{/if}"><a href="{$wa->currentUrl(0, 1)}"><i class="material-icons">&#xE8F0;</i></a></li
+                    ><li class="list{if $pens_cat_flag == 1} selected{/if}"><a href="{$wa->currentUrl(0, 1)}"><i class="material-icons">&#xE8EF;</i></a></li
+                    ><li class="short-list{if false} selected{/if}"><a href="{$wa->currentUrl(0, 1)}"><i class="material-icons">&#xE8F2;</i></a></li>
+                </ul>
+            </div>
+        {/if}
+
+    </div>
+
+</div>
+{/if}
+<!-- NOTE:  указываю как вывести товар, списком или плиткой используя флаг-->
+{*default:  {if !empty($select_view)} {$select_view}{else} thumbs{/if}*}
+<ul class="product-list art-product-list{if !empty($ulclass)} {$ulclass}{else} expandable colored{/if}{if $pens_cat_flag == 1 || $bookmark == 1} list{else} thumbs{/if}">
+{if !empty($theme_settings.list_features)}
+    {$features = $wa->shop->features($products)}
+{/if}
+
+{if !empty($theme_settings.scroll_image)}
+    {$_images = $wa->shop->images(array_keys($products), '200')}
+{/if}
+
+
+
+{* Теперь выведет все характеристики товара*}
+{if !$flag_in}
+{$features = $wa->shop->features($products)}
+{/if}
+
+
+{* Цикл вывода товаров*}
+{foreach $page_p as $p}{*$products*}
+
+    {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}{**}
+
+    <li class="art-itemscope" {if empty($without_micro_markup)} itemscope itemtype ="http://schema.org/Product"{/if}>
+
+        <div class="pl-item-wrapper art-pl-item-wrapper">
+
+            <div class="pl-item-image art-pl-item-image">
+
+                <a href="{$p.frontend_url}" title="{$p.name}">
+                    <div class="image art-image">{$_images_url = []}
+                        <div class="image-setting-wrapper art-image-setting-wrapper"{if !empty($_images[$p.id])}{foreach $_images[$p.id] as $_i}{$_images_url[] = $_i['url_200']}{/foreach} data-images='{json_encode($_images_url)}'{/if}>
+                            {if count($_images_url) > 1}
+                                <span title="[`Prev image`]" class="image-setting-btn image-setting-prev art-image-setting-prev"><i class="material-icons mi-2x">&#xE5CB;</i></span>
+                                <span title="[`Next image`]" class="image-setting-btn image-setting-next art-image-setting-next"><i class="material-icons mi-2x">&#xE5CC;</i></span>
+                            {/if}
+                            {if !empty($theme_settings.product_preview)}
+                                <span title="[`Preview`]" class="image-setting-btn image-setting-product-preview" data-url="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&amp;preview=1">
+                                    <i class="material-icons mi-2x">&#xE85B;</i>
+                                </span>
+                            {/if}
+                        </div>
+                        <!-- NOTE:  изображение товара-->
+                        <div class="badge-wrapper art-badge-wrapper">
+                            {$badge_html = $wa->shop->badgeHtml($p.badge)}
+                            {if $badge_html}
+                                <div class="corner top left">{$badge_html}</div>
+                            {/if}
+                            {if empty($without_micro_markup)}
+                            <!-- NOTE:  здесь изменил размер изображения с 200 на 750-->
+                                {if !$pens_cat_flag}
+                                  {$wa->shop->productImgHtml($p, '750', ['itemprop' => 'image', 'alt' => $p.name, 'default' => "/wa-data/public/site/themes/profitbuy/img/no-image-big.png"])}
+                                {elseif $pens_cat_flag}
+                                  {$wa->shop->productImgHtml($p, '750', ['itemprop' => 'image', 'alt' => $p.name, 'default' => "/wa-data/public/site/themes/profitbuy/img/no-img.png"])}
+                                {/if}
+                            {else}
+                              {$wa->shop->productImgHtml($p, '750', ['alt' => $p.name, 'default' => "/wa-data/public/site/themes/profitbuy/img/no-image-big.png"])}
+                            {/if}
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="pl-item-info art-pl-item-info">
+
+                <div class="pl-item-info-expandable art-pl-item-info-expandable">
+                        <hr class="art-thumbs-hr" style="display:none;">{*Эту строку не удалять и не менять стили!!!!*}
+                    <a href="{$p.frontend_url}" title="{$p.name}">
+                        <!--<span class="type-item"></span>-->
+                        <h5>
+                            <span{if empty($without_micro_markup)} itemprop="name"{/if}>{$p.name}</span>
+                        </h5>
+                    </a>
+
+                    <div class="stock-and-rating">
+
+                        {if true}{*NOTE $p.rating > 0   *}
+                            <span class="rating nowrap">{$wa->shop->ratingHtml($p.rating, '24')}</span>
+                        {/if}
+
+                        {if true}{*  $available  *}
+                            {if true}{*  $p.count === null || $p.count > 0 *}
+                                <div class="stock-label stock-high">
+                                <i class="icon16 stock-green"></i>
+                                <span class="art-thumbs-count-text{if !$available} pre-order-als{/if}">{if $available}[`In stock`]{else}Нет в наличии{/if}</span>{*под заказ*}
+
+                                </div>
+                            {else}
+                                <div class="stock-label stock-none"><i class="icon16 stock-transparent"></i><span class="art-thumbs-count-text">[`Pre-order only`]</span></div>
+                            {/if}
+                        {/if}
+
+                        {*else}
+                            <div class="stock-label out-of-stock"><i class="icon16 stock-transparent"></i>{if $wa->shop->settings('ignore_stock_count')}[`Pre-order only`]{else}[`Out of stock`]{/if}</div>
+                        {/if*}
+                    </div>
+
+                    {if $p.summary}<div{if empty($without_micro_markup)} itemprop="description"{/if} class="summary">{*strip_tags($p.summary)|truncate:100*}{$p.summary}</div>{/if}
+
+                    {if !empty($p.features)}
+                    <table class="features">
+                        {foreach $p.features as $f_code => $f_value}
+                        <tr{if $features[$f_code].type == 'divider'} class="divider"{/if}>
+                        <td class="name">
+                            {$features[$f_code].name|escape}
+                        </td>
+                        <td class="value">
+                            {if is_array($f_value)}
+                                {if $features[$f_code].type == 'color'}
+                                    {implode('<br /> ', $f_value)}
+                                {else}
+                                    {implode(', ', $f_value)}
+                                {/if}
+                            {else}
+                                {$f_value}
+                            {/if}
+                        </td>
+                        </tr>
+                        {/foreach}
+                    </table>
+                    {/if}
+
+                </div>
+
+                <div class="offers art-offers{if !$available} no-avilable-list{/if}"{if empty($without_micro_markup)} itemprop="offers" itemscope itemtype="http://schema.org/Offer"{/if}>
+
+                    {*товар доступен: в наличии*}
+                    {if true}{*$available*}
+                        {if false}{*  !empty($without_form)  *}
+                            <div class="purchase addtocart" {if $p.sku_count > 1}data-url="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1"{/if}>
+
+
+
+
+
+                                <div class="price-wrapper">
+                                    {if $p.compare_price > 0}
+                                      <span class="compare-at-price nowrap"> {shop_currency_html($p.price,'RUR')} </span>{/if}{*$p.compare_price*}
+                                    <span class="price nowrap art-thumbs-price">{shop_currency_html($p.price,'RUR')}</span>
+                                </div>
+                                {if empty($without_micro_markup)}
+                                    <meta itemprop="price" content="{$p.price}">
+                                    <meta itemprop="priceCurrency" content="{$wa->shop->primaryCurrency()}">
+                                {/if}
+
+
+
+                                <div class="submit-wrapper">
+                                    <input type="button" class="button second-type{if !$available} pre-order-btn{/if}" data-product_id="{$p.id}" data-url="{$wa->getUrl('shop/frontendCart/add')}" value="{$add2cart_label}"><i class="adding2cart"></i>
+                                </div>
+
+
+
+                                <div class="addition-wrapper art-addition-wrapper">
+                                    <a data-product="{$p.id}" href="#" class="addition-button compare-add{if in_array($p.id, $compare_p)} added{/if}" title="[`In comparison`]" rel="nofollow">
+                                        <i class="material-icons mi-2x">&#xE01D;</i>
+                                    </a>
+                                    <a data-product="{$p.id}" href="#" class="addition-button bookmark-add{if in_array($p.id, $bookmark_p)} added{/if}" title="[`In bookmarks`]" rel="nofollow">
+                                        <i class="material-icons mi-2x">&#xE838;</i>
+                                    </a>
+                                </div>
+
+
+
+                                <span class="added2cart" style="display: none;">{sprintf('[`%s is now <a href="%s"><strong>in your shopping cart</strong></a>`]', $p.name, $wa->getUrl('shop/frontend/cart'))}</span>
+                            </div>
+                        {else}
+
+
+
+
+                            {if $available}
+                            <form class="purchase addtocart" {if $p.sku_count > 1}data-url="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1"{/if} method="post" action="{$wa->getUrl('shop/frontendCart/add')}">
+                            {/if}
+                                {*отображается не зависимо от наличия*}
+
+
+
+                      <div class="price-wrapper">
+                      {if $p.compare_price > 0}<span class="compare-at-price nowrap"> {shop_currency_html($p.price,'RUR')} </span>{/if}{*$p.compare_price*}
+<span class="price nowrap{if !$available} price-noavilable{/if}">{shop_currency_html($p.price,'RUR')}</span>
+<span style="display:none" class="item-price">{$p.price}</span>
+                                  {if !$available}
+                                  <div class="{*stock-label stock-high*} noavilable-text">
+                                    <span class="art-thumbs-count-text{if !$available} pre-order-als{/if}">
+                                      {if $available}[`In stock`]{else}Нет в наличии{/if}
+                                    </span>
+                                  </div>
+                                  {/if}
+
+                                </div>
+
+
+                                {if empty($without_micro_markup)}
+                                    <meta itemprop="price" content="{$p.price}">
+                                    <meta itemprop="priceCurrency" content="{$wa->shop->primaryCurrency()}">
+                                {/if}
+                                <input type="hidden" name="product_id" value="{$p.id}">
+
+                            <div class="art-thumbs-down{if !$available} no-available-wrap-btn{/if}">
+
+                              <div class="addition-wrapper art-addition-wrapper">
+                                  <a data-product="{$p.id}" href="#" class="addition-button bookmark-add{if in_array($p.id, $bookmark_p)} added{/if}" title="[`In bookmarks`]" rel="nofollow">
+                                      <i class="material-icons mi-2x">&#xE838;</i>
+                                  </a>
+                                  <a data-product="{$p.id}" href="#" class="addition-button compare-add{if in_array($p.id, $compare_p)} added{/if}" title="[`In comparison`]" rel="nofollow">
+                                      <i class="material-icons mi-2x">&#xE01D;</i>
+                                  </a>
+                              </div>
+                                <div class="submit-wrapper{if !$available} no-available{/if}">
+                                    <input type="submit" class="second-type{if !$available} pre-order-btn{/if}" value="{if !$available}нет в наличии{else}{$add2cart_label}{/if}"><i class="adding2cart"></i>
+                                </div>
+
+                          </div>
+                                <span class="added2cart" style="display: none;">{sprintf('[`%s is now <a href="%s"><strong>in your shopping cart</strong></a>`]', $p.name, $wa->getUrl('shop/frontend/cart'))}</span>
+                            {if $available}</form>{/if}
+
+
+
+
+
+
+                        {/if}
+
+                        {if empty($without_micro_markup)}<link itemprop="availability" href="http://schema.org/InStock" />{/if}
+
+                    {/if}
+                </div>
+
+            </div>
+
+        </div>
+        {if !empty($theme_settings.flying_cart_item) && $p.sku_count < 2}
+            <input type="hidden" class="flying-cart-data" data-url = "{$p.frontend_url}" data-img_url = "{$wa->shop->productImgUrl($p, '96x96')}" data-name = "{$p.name|escape}" data-price = "{shop_currency_html($p.price)|escape}" />
+        {/if}
+    </li>
+{/foreach}
+
+</ul>
+
+{*<h4>{isset($pages_count)} and {$pages_count}</h4>*}
+
+{$count_p = $products|@count}
+{$pages_count = ($count_p / $max_count_page)|ceil}
+
+{*не выводить в фильтре товара*}
+{if isset($pages_count) && $pages_count > 1}
+<div class="block {if $theme_settings.pagination == 'lazyloading'}lazyloading-paging{else}paging-nav{/if}"  data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
+    {wa_pagination total=$pages_count attrs=['class' => "menu-h"]} 
+</div>
+{/if}
+
+{if $pages_count > 1}{*условия при которых надо выводить пагинацию*}
+<div class="art-als-pagination">
+    <form>
+    <div class="als-row art-pagination">
+        {* <div class="pgn-btn pagination-left">L</div> *}
+        <input type="button" name="btn_left" class="pgn-left art-pgn-left">
+        <input name="page" value="1" class="page-input">
+        <input type="button" name="btn_right" class="pgn-right art-pgn-right">
+        {* <div class="pgn-btn pagination-right">R</div> *}
+        <div class="pagination-text"><span>из&nbsp;<span class="end-number">{$pages_count|escape}</span></span></div>
+    </div>
+        <input type="submit" value="send" class="opacity-btn" style="opacity:0.5; margin-top:10px;">
+    </form>
+
+</div>
+{/if}

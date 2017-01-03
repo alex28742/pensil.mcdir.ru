@@ -1,0 +1,65 @@
+{strip}
+<div class="fill-background">
+    <h1 class="art-category-name">{$page.name}</h1>
+    {$subpages = $wa->shop->pages($page.id)}
+    {if $subpages}
+    <div class="sub-links art-sub-links">
+      <div class="row-grid">
+        {foreach $subpages as $p}
+        <div class="col-grid s12 m6 l4 art-sub-links">
+            <a href="{$p.url}">
+            <div class="art-category-img">
+                <img src="/wa-data/public/site/themes/profitbuy/img/slide2.jpg"></div>
+            <div class="col-grid s12 m12 l12 art-category-ssilka">
+
+                    <!--<div class="art-category-ssilka-wrap">-->
+                        <div class="col-grid s6 m9 l8 art-ssilka-name">
+                            <span>{$p.name}</span>
+                        </div>
+                        <div class="col-grid s6 m3 l4 art-button-fon">
+                            <span>перейти</span>
+                        </div>
+                    <!--</div>-->
+            </div>
+            </a>
+        </div>
+        {/foreach}
+        </div>
+    </div>
+    <div class="art-sub-links">
+        <p>
+            История создания ручки для письма уходит своими корнями за пределы 6000 лет. За этот продолжительный период развития человечества произошла и существенная
+            модернизация пишущих приспособлений. В те времена пергамент больше использовался для рукописных книг. Однако, с каждым столетием распространение его
+            увеличивалось. Появилась потребность в пишущем по нему недорогом и доступном инструменте. Таким инструментом стало перо. Европейцы научились затачивать
+            перья таким образом, что при письме на пергаменте изменялся стиль написания. Так 14 веков назад появились прописные буквы.
+        </p>
+    </div>
+    {/if}
+    <div id="page" role="main">{$page.content|strip}</div>
+</div>
+{/strip}
+
+
+
+<!--{strip}-->
+
+<!--<div class="fill-background">-->
+
+<!--    <h1>{$page.name}</h1>-->
+
+<!--    {$subpages = $wa->shop->pages($page.id)}-->
+<!--    {if $subpages}-->
+<!--        <ul class="sub-links">-->
+<!--            {foreach $subpages as $p}-->
+<!--                <li><a href="{$p.url}">{$p.name}</a></li>-->
+<!--            {/foreach}-->
+<!--        </ul>-->
+<!--    {/if}-->
+
+<!--    <div id="page" role="main">-->
+<!--        {$page.content|strip}-->
+<!--    </div>-->
+
+<!--</div>-->
+
+<!--{/strip}-->

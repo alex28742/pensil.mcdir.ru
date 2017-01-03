@@ -1,0 +1,343 @@
+<!--<h3>filter.pish.html</h3>-->
+{$feature_button = $theme_settings.feature_button|default:""}
+{$filters_expand = $theme_settings.default_filters_expand|default:""}
+
+{*$feature_button = 'touch_screen,manufacturer'*}
+{*$filters_expand = 'price,touch_screen'*}
+
+{$filters_expand = $filters_expand|cat:waRequest::cookie('shop_filters_expand', '', waRequest::TYPE_STRING)}
+<!-- filtering by product features -->
+{if waRequest::isXMLHttpRequest() && waRequest::get('page', 1) == 1}
+<link href="{$wa_static_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.core.min.js?v{$wa->version(true)}"></script>
+<script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js?v{$wa->version(true)}"></script>
+<script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js?v{$wa->version(true)}"></script>
+<script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js?v{$wa->version(true)}"></script>
+
+{/if}
+
+{*вывод всех характеристик для настройки фильтра*}
+{*
+{foreach $filters as $feature}
+    <em>{$feature.code}</em><br>
+{/foreach}
+*}
+<!-- NOTE: разделение характеристик на отдельные массивы -->
+{foreach $filters as $feature}
+{* бренд *}
+{if $feature.code == "brend"}{$arr_brand = $feature}
+{* коллекция *}
+{elseif $feature.code == "kollektsiya"}{$arr_kollektsiya = $feature}
+{* материал обложки *}
+{elseif $feature.code == "material_oblozhki"}{$material_oblozhki = $feature}
+{* тип товара *}
+{elseif $feature.code == "tip_tovara"}{$tip_tovara = $feature}
+{* отделка *}
+{elseif $feature.code == "otdelka"}{$otdelka = $feature}
+{* отделка обложки *}
+{elseif $feature.code == "otdelka_oblozhki"}{$otdelka_oblozhki = $feature}
+{* формат обложки *}
+{elseif $feature.code == "format_oblozhki"}{$format_oblozhki = $feature}
+{* точный размер *}
+{elseif $feature.code == "tochnyy_razmer"}{$tochnyy_razmer = $feature}
+{* линовка *}
+{elseif $feature.code == "linovka"}{$linovka = $feature}
+{* датировка *}
+{elseif $feature.code == "datirovka"}{$datirovka = $feature}
+{* отделка среза *}
+{elseif $feature.code == "otdelka_sreza"}{$otdelka_sreza = $feature}
+{* кол-листов *}
+{elseif $feature.code == "kol_vo_listov"}{$kol_vo_listov = $feature}
+{* разделитель *}
+{elseif $feature.code == "razdelitel"}{$razdelitel = $feature}
+{* цвет обложки *}
+{elseif $feature.code == "tsvet_oblozhki"}{$tsvet_oblozhki = $feature}
+{* цвет бумаги *}
+{elseif $feature.code == "tsvet_bumagi"}{$tsvet_bumagi = $feature}
+{/if}
+{/foreach}
+
+{$get_min_prise = $filters.price.min}{$get_max_prise = $filters.price.max}
+
+
+<div class="filters sidebar-box{if !empty($theme_settings.ajax_filters)} ajax{/if} filter-podbor-pish bum-belov">
+    <form method="get" action="{$wa->currentUrl(0,1)}" data-loading="{$wa_parent_theme_url}img/loading16.gif"> {*data-title="[`Filter`]: *}
+
+        {* <!-- Верхняя часть фильтра --> *}
+        <div class="row-grid row-filter als-top">
+            <div class="col-grid s12 m12 l12 top-row al-block block1">
+
+                <!-- блок 1 -->
+                <div class="col-grid {*s6 m2*}m3 l3 col-brends new-col-block">
+                    <div class="art-wrap-harki">
+                        <span class="feature-name">Бренды</span>
+                        <div class="overflow-min filter-wrapper">
+                            <label class="">
+                                <select id="brend-select" class="s-select" size="" name="{$arr_brand.code}[]">
+                                    <option  class="stylize first-value" name="{$val.code}[]" value="" data-name=''>Все бренды</option>
+                                    {foreach $arr_brand.values as $val}
+                                    <option  class="stylize opt" name="{$val.code}[]" value="{$val|@array_search:$arr_brand.values}"  data-name='{$val}' data-id='{$val|@array_search:$arr_brand.values}'>{$val}</option>
+                                    <span class="stylize"></span>
+                                    {$val}
+                                    {/foreach}
+                                </select>
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 2 -->
+
+                <div class="col-grid {*s6 m2*} m3 l3 al-block block2 col-collections new-col-block">
+                    <div class="art-wrap-harki">
+                        <span class="feature-name">Коллекции</span>
+                        <br>
+                        <div class="overflow-min filter-wrapper">
+                            <label class="">
+
+                                <select id="id-collection-select" class="s-select" size="" name="{$arr_kollektsiya.code}[]" disabled="disabled">
+                                    <option  class="stylize" name="{$val.code}[]" value="">Все коллекции</option>
+                                    {foreach $arr_kollektsiya.values as $val}
+                                    <option  class="stylize opt" name="{$val.code}[]" value="{$val|@array_search:$arr_kollektsiya.values}">{$val}</option>
+                                    <span class="stylize"></span>
+                                    {$val}
+                  {/foreach}
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 3 -->
+                <div class="col-grid {*s12 m4*} m3 l3 al-block block3 col-otdelki new-col-block">
+                    <div class="art-wrap-harki">
+                        <span class="feature-name">Отделки коллекции</span>
+                        <br>
+                        <div class="overflow-min filter-wrapper">
+                            <label class="">
+
+                                <select id="id-select-otdelka" class="s-select" size="" name="{$arr_otdelka_kollektsii.code}[]" class="colss" disabled="disabled">
+                                    <option  class="stylize first-option" value="">Все отделки</option>
+                                    {foreach $arr_otdelka_kollektsii.values as $val}
+                                    <option  class="stylize opt" {*name="{$val.code}[]"*} value="{$val|@array_search:$arr_otdelka_kollektsii.values}">{$val}</option>
+                                    <span class="stylize"></span>
+                                    {$val}
+                  {/foreach}
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 4 -->
+                <div class="col-grid {*s16 m4*} m3 l3 al-block block4 col-diapason-cen new-col-block">
+                    <div class="overflow-min ceny">
+                        <div class="art-wrap-harki">
+                            <p class="feature-name">Цена</p>
+                            <div class="als-price-wrapp">
+
+                                <div class="filter-slider-wrapper">
+                                 <input type="text" class="min" name="price_min" {if $wa->get('price_min')}{/if} placeholder="{floor($get_min_prise)}" data-min-price="{floor($get_min_prise)}" >
+                                 <input type="text" class="max" name="price_max" {if $wa->get('price_max')}{/if} placeholder="{ceil($get_max_prise)}" data-max-price="{ceil($get_max_prise)}" >
+                                </div>
+
+                                <div class="prices-text art-prices-text">
+                                    <span class="als-min art-als-min">
+                                        от&nbsp;
+                                        <span class="min-value art-min-value">&nbsp;</span>р.
+                                    </span>
+                                    <span class="als-max art-als-max">
+                                        до&nbsp;
+                                        <span class="max-value art-max-value">&nbsp;</span>р.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <hr class="art-hr-filter">
+        {* Нижняя часть фильтра *}
+        <div class="row-grid row-filter als-bottom">
+
+            <div class="block-flow-wrapper col-grid s12 m12 l12">
+
+              {* <!--добавляю строку--> *}
+              <div class="row-grid row-first art-row-first">
+
+                <!-- блок 1 -->
+                <div class="col-grid l2 al-block block-flow">
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background top-uzla-block">
+
+                          <p class="feature-name art-feature-name">Тип товара</p>
+                          {foreach $tip_tovara.values as $val}
+                            <label class="label">
+                            <input type="checkbox"  name="{$tip_tovara.code}[]" value="{$val|@array_search:$tip_tovara.values}" placeholder="">
+                            <span class="stylize"></span>{$val}<br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 2 -->
+                <div class="col-grid l2 al-block block-flow">
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background">
+
+                          <p class="feature-name art-feature-name">Цвет обложки</p>
+                          {foreach $tsvet_oblozhki.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$tsvet_oblozhki.code}[]" value="{$val|@array_search:$tsvet_oblozhki.values}" placeholder="">
+                            <span class="stylize"></span><span class="rem_col">{$val}</span><br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+                <!-- блок 2 -->
+                <div class="col-grid l2 al-block block-flow">
+
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background tip-pera-block">
+                          <p class="feature-name art-feature-name">Материал обложки</p>
+                          {foreach $material_oblozhki.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$material_oblozhki.code}[]" value="{$val|@array_search:$material_oblozhki.values}" placeholder="">
+                            <span class="stylize"></span>{$val}<br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 3 -->
+                <div class="col-grid l2 al-block block-flow">
+
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background tip-pera-block">
+                          <p class="feature-name art-feature-name">Отделка обложки</p>
+                          {foreach $otdelka_oblozhki.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$otdelka_oblozhki.code}[]" value="{$val|@array_search:$otdelka_oblozhki.values}" placeholder="">
+                            <span class="stylize"></span><span class="rem_col">{$val}</span><br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 3 -->
+                <div class="col-grid l2 al-block block-flow">
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background material-korpusa-block">
+                          <p class="feature-name art-feature-name">Формат обложки</p>
+                          {foreach $format_oblozhki.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$format_oblozhki.code}[]" value="{$val|@array_search:$format_oblozhki.values}" placeholder="">
+                            <span class="stylize"></span>{$val}<br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 4 -->
+                <div class="col-grid l2 al-block block-flow">
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background material-korpusa-block">
+                          <p class="feature-name art-feature-name">Цвет бумаги</p>
+                          {foreach $tsvet_bumagi.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$tsvet_bumagi.code}[]" value="{$val|@array_search:$tsvet_bumagi.values}" placeholder="">
+                            <span class="stylize"></span>{$val}<br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+              </div>{*конец строки*}
+
+              {* <!--добавляю строку 2--> *}
+              <div class="row-grid row-second art-row-second">
+
+                <!-- блок 2.1 -->
+                <div class="col-grid l2 al-block block-flow">
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background mehanizm-block">
+                          <p class="feature-name art-feature-name">Линовка</p>
+                          {foreach $linovka.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$linovka.code}[]" value="{$val|@array_search:$linovka.values}" placeholder="">
+                            <span class="stylize"></span>{$val}<br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 5 -->
+                <div class="col-grid l2 al-block block-flow">
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background material-korpusa-block">
+                          <p class="feature-name art-feature-name">Датировка</p>
+                          {foreach $datirovka.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$datirovka.code}[]" value="{$val|@array_search:$datirovka.values}" placeholder="">
+                            <span class="stylize"></span>{$val}<br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок 7 -->
+                <div class="col-grid l2 al-block block-flow">
+                    <div class="art-wrap-harki">
+                        <div class="overflow filter-wrapper filter-background">
+                          <p class="feature-name art-feature-name">Отделка среза</p>
+                          {foreach $otdelka_sreza.values as $val}
+                            <label class="">
+                            <input type="checkbox"  name="{$otdelka_sreza.code}[]" value="{$val|@array_search:$otdelka_sreza.values}" placeholder="">
+                            <span class="stylize"></span>{$val}<br>
+                            </label>
+                          {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>{*конец строки 2*}
+                {* Конец нижней части фильтра *}
+            </div>
+        </div>
+        {if $wa->get('sort')}
+        <input type="hidden" name="sort" value="{$wa->
+        get('sort')|escape}">{/if}
+        {if $wa->get('order')}
+        <input type="hidden" name="order" value="{$wa->
+        get('order')|escape}">{/if}
+        {if true}
+        <div class="filter-param controls">
+            {*
+            <a id="btn-show-all" class="button">Показать расширенные фильтры</a>
+            *}
+            <a href="{$wa->
+                currentUrl(0,1)}" id="clear-filters-expand" class="button third-type">Сбросить
+            </a>
+            <div class="allItemsCount"></div>
+        </div>
+        {/if}
+        <input type="submit" name="отправить" value="отправить данные формы" style="" class="btn-sub-form">
+
+        <div class="art-close-filter">
+            <a href="#">свернуть фильтр</a>
+        </div>
+    </form>
+</div>

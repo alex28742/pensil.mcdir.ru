@@ -1,0 +1,490 @@
+
+                                                                          /*1600 - 1679*/
+
+@media screen and (min-width: 1600px) and (max-width: 1679px) {}
+                                                                        /*1440 - 1599*/
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+  .art-category-img {
+    height: 217px;
+  }
+
+  .list .pl-item-image {
+      width: 39% !important;
+  }
+
+  .list .art-pl-item-info{
+    width: 61% !important;
+  }
+
+  .thumbs .art-itemscope{
+    width: 19% !important;
+  }
+
+  .thumbs .art-thumbs-down .submit-wrapper{
+    right: -2px;
+  }
+
+  .without-sidebar ul.product-list.thumbs > li{
+    width: 25.8% !important;
+  }
+
+
+}
+
+                                                                          /*1400 - 1439*/
+@media screen and (min-width: 1400px) and (max-width: 1439px) {
+  .art-category-img {
+    height: 210px;
+  }
+}
+
+                                                                        /*1366 - 1399*/
+@media screen and (min-width: 1366px) and (max-width: 1399px) {
+
+  .art-category-img {
+    height: 202px;
+}
+
+.list .pl-item-image {
+    width: 35% !important;
+}
+
+.list .art-pl-item-info{
+  width: 65% !important;
+}
+
+.list .art-pl-item-info-expandable div.row-line div.link{
+  width: 286px !important;
+}
+
+
+  .thumbs .art-itemscope{
+    width: 20% !important;
+  }
+
+  .art-wrap-cartochka .art-nal .stock-label.stock-high{
+    font-size: 12px;
+  }
+
+  .art-wrap-cartochka .s-select{
+    width: 96%;
+  }
+
+  .art-table-cart tr .art-name-tab{
+      min-width: 147px !important;
+    }
+
+  .art-wrap-cartochka .at-stylize-label.art-at-stylize-label{
+    width: 46%;
+  }
+
+/*http://pensil.mcdir.ru/search/?query=sheaffer*/
+
+  .without-sidebar ul.product-list.thumbs > li{
+    width: 27.1% !important;
+  }
+
+  .art-oform-wrapper {
+    padding: 20px 77px 20px 61px;
+  }
+
+
+/*http://pensil.mcdir.ru/C0021313/*/
+  html body main.maincontent.art-maincontent div.container div.row-grid div#page-content.content.col-grid.s12 article.row-grid.product-wrapper div#overview.product-info.col-grid.s12.l12 div.fill-background div#product-tabs div#product-tab-description.product-tab div#product-description p{
+   padding-right: 29rem;
+  }
+}
+
+                                                                  /*1360 - 1365*/
+@media screen and (min-width: 1360px) and (max-width: 1365px) {}
+
+                                                                  /*1280 - 1359*/
+@media screen and (min-width: 1280px) and (max-width: 1359px) {}
+
+                                                                  /*1152 - 1279*/
+@media screen and (min-width: 1152px) and (max-width: 1279px) {}
+
+                                                                    /*1024 - 1151*/
+@media screen and (min-width: 1024px) and (max-width: 1151px) {}
+
+                                                                            /*960 - 1023*/
+@media screen and (min-width: 960px) and (max-width: 1023px) {}
+
+                                                                            /*800 - 959*/
+@media screen and (min-width: 800px) and (max-width: 959px) {}
+
+                                                                            /*640 - 799*/
+@media screen and (min-width: 640px) and (max-width: 799px) {}
+
+                                                                            /*480 - 639*/
+@media screen and (min-width: 480px) and (max-width: 639px) {}
+
+                                                                            /*400 - 479*/
+@media screen and (min-width: 400px) and (max-width: 479px) {}
+
+                                                                            /*360 - 399*/
+@media screen and (min-width: 360px) and (max-width: 399px) {}
+
+                                                                            /*320 - 359*/
+@media screen and (min-width: 320px) and (max-width: 359px) {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    /*детали*/
+
+
+/*601-633*/
+
+
+/*выравниваем телефоны*/
+
+@media screen and (min-width: 601px) and (max-width: 633px) {
+    .art-center-head .art-phones-wrapper .art-li1 {
+        padding-bottom: 14px;
+    }
+}
+
+
+/*1199*/
+
+
+/*выравниваем элементы меню*/
+
+@media screen and (min-width: 1182px) and (max-width: 1186px) {
+    .art-base-menu>li>a {
+        font-size: 17px;
+    }
+}
+
+
+/*выравнивание элементов в сайдбаре*/
+
+
+/*1185-1310*/
+
+@media screen and (min-width: 1185px) and (max-width: 1310px) {
+    .art-maincontent .art-sidebar-group .art-base-menu-sidebar .art-parent a {
+        font-size: 13.75px;
+    }
+    .art-banner {
+        top: 169px;
+    }
+}
+
+
+/*max 1184*/
+
+@media screen and (max-width: 1184px) {
+    .art-maincontent .art-sidebar-group .art-base-menu-sidebar .art-parent a {
+        font-size: 12px;
+    }
+    .art-banner {
+        top: 173px;
+    }
+}
+
+
+/*min 993*/
+
+
+/*прижимаем слайдер к сайдбару*/
+
+@media screen and (min-width: 993px) {
+    .art-maincontent div.content {
+        padding-left: 0;
+    }
+}
+
+
+/*выравниваем блок "о нас" с картинкой*/
+
+@media screen and (min-width: 1384px) and (max-width: 1478px) {
+    .art-wrapper-about {
+        padding-top: 63px;
+    }
+}
+
+@media screen and (min-width: 1308px) and (max-width: 1383px) {
+    .art-wrapper-about {
+        padding-top: 42px;
+    }
+}
+
+@media screen and (min-width: 1253px) and (max-width: 1307px) {
+    .art-wrapper-about {
+        padding-top: 21px;
+    }
+}
+
+@media screen and (min-width: 1172px) and (max-width: 1252px) {
+    .art-wrapper-about {
+        padding-top: 0;
+    }
+}
+
+@media screen and (min-width: 1134px) and (max-width: 1171px) {
+    .art-wrapper-about {
+        padding-top: 0;
+        padding-bottom: 48px;
+    }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1133px) {
+    .art-wrapper-about {
+        padding-top: 0;
+        padding-bottom: 27px;
+    }
+}
+
+
+/*****************************************************************************/
+
+
+/*выравнивание кнопки обратного звонка*/
+
+@media screen and (max-width: 1416px) {
+    .art-call-back-wrapper a {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 1253px) {
+    .art-call-back-wrapper a {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1213px) {
+    .art-call-back-wrapper a {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1171px) {
+    .art-call-back-wrapper a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1131px) {
+    .art-call-back-wrapper a {
+        font-size: 13px;
+    }
+}
+
+
+/*****************************************************************************/
+
+
+/*выравнивание текста обратного звонка*/
+
+@media screen and (max-width: 1337px) {
+    .art-text-question p {
+        font-size: 17.4px;
+    }
+}
+
+@media screen and (max-width: 1285px) {
+    .art-text-question p {
+        font-size: 16.4px;
+    }
+}
+
+@media screen and (max-width: 1233px) {
+    .art-text-question p {
+        font-size: 15.4px;
+    }
+}
+
+@media screen and (max-width: 1179px) {
+    .art-text-question p {
+        font-size: 14.4px;
+    }
+}
+
+@media screen and (max-width: 1127px) {
+    .art-text-question p {
+        font-size: 13.4px;
+    }
+}
+
+@media screen and (max-width: 1218px) {
+    .art-question span {
+        font-size: 24.48px;
+    }
+}
+
+
+/*****************************************************************************/
+
+
+/*выравнивание нижнего меню*/
+
+@media screen and (min-width: 1199px) and (max-width: 1293px) {
+    .art-nav-pills li a {
+        font-size: 15.05px;
+    }
+    .art-copyright span {
+        font-size: 13.05px;
+    }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1198px) {
+    .art-copyright span {
+        font-size: 11.05px;
+    }
+    .art-nav-pills li a {
+        font-size: 14.05px;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 992px) {
+    .art-down-left, .art-copyright, .art-down-middle {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        display: flex;
+    }
+    .art-copyright span {
+        font-size: 18.05px;
+    }
+}
+
+@media screen and (min-width: 508px) and (max-width: 649px) {
+    .art-down-left, .art-copyright, .art-down-middle {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        display: flex;
+    }
+    .art-nav-pills li a {
+        font-size: 12.05px;
+    }
+}
+
+@media screen and (min-width: 485px) and (max-width: 507px) {
+    .art-down-left, .art-copyright, .art-down-middle {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        display: flex;
+    }
+    .art-nav-pills li a {
+        font-size: 11.05px;
+    }
+}
+
+@media screen and (min-width: 437px) and (max-width: 484px) {
+    .art-down-left, .art-copyright, .art-down-middle {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        display: flex;
+    }
+    .art-nav-pills li a {
+        font-size: 9.05px;
+    }
+}
+
+@media screen and (min-width: 376px) and (max-width: 436px) {
+    .art-down-left {
+        display: none;
+    }
+    .art-social-item {
+        width: 35px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .art-social-item {
+        width: 35px;
+    }
+    .art-down-left {
+        display: none;
+    }
+    .art-copyright span {
+        font-size: 10.05px;
+    }
+}
+
+
+/*****************************************************************************/
+
+
+/*на маленьких мониторах скрываем слайдер, отступы блока "о нас" при маленьком разрешении*/
+
+@media screen and (max-width: 992px) {
+    .art-global-promo-slider {
+        display: none;
+    }
+    .art-wrapper-about {
+        padding: 5%;
+    }
+}
+
+
+/* "ещё" в верхнем меню скрываем*/
+
+@media screen and (min-width: 1280px) and (max-width: 1390px) {
+    .art-base-menu>li>a {
+        padding: 0 11px !important;
+    }
+}
+
+
+/*****************************************************************************/

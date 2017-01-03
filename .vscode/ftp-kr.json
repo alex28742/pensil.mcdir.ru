@@ -2,7 +2,7 @@
     "host": "a170031.ftp.mchost.ru",
     "username": "a170031_pensil",
     "password": "EMUluO9gg1",
-    "remotePath": "httpdocs/",
+    "remotePath": "httpdocs/wa-data/public/shop/themes/profitbuy/",
     "port": 21,
     "fileNameEncoding": "utf8",
     "ignoreWrongFileEncoding": false,

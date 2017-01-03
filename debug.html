@@ -1,0 +1,34 @@
+{*{if $category.id == 12}
+
+{$categories = shopGetProducts::getCategoryBySort()}
+
+{$features = $wa->shop->features($products)}
+
+{$answer = shopSort::getSortCategory($categories,$products)}
+
+
+
+{foreach $answer as $item}
+
+    <p>
+    <em style="color:red">Коллекция: {foreach $item.features.kollektsiya as $i}<strong><span>{$i}</span></strong>{/foreach}</em><br>
+    <em style="color:green">Отделка: {foreach $item.features.otdelka_kollektsii as $i}<strong><span>{$i}</span></strong>{/foreach}</em><br>
+    <em>{$item.name}:{foreach $item.features.tip_pishushchego_uzla as $i}<strong><span>{$i}</span></strong>{/foreach}</em><br>
+    </p>
+
+{/foreach}
+
+{/if}
+
+
+*}
+{$features = $wa->shop->features($page_p)}
+{foreach $page_p as $item}
+
+    <p>
+    <em style="color:red">Коллекция: {foreach $item.features.kollektsiya as $i}<strong><span>{$i}</span></strong>{/foreach}</em><br>
+    <em style="color:green">Отделка: {foreach $item.features.otdelka_kollektsii as $i}<strong><span>{$i}</span></strong>{/foreach}</em><br>
+    <em>{$item.name}:{foreach $item.features.tip_pishushchego_uzla as $i}<strong><span>{$i}</span></strong>{/foreach}</em><br>
+    </p>
+
+{/foreach}

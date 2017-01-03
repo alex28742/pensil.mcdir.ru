@@ -1,0 +1,267 @@
+
+{*Пример заполнения доп.параметров категории*}
+{*
+    banner=/wa-data/public/site/themes/profitbuy/img/banner-fon.jpg
+    filter=fullpens
+    view=line
+
+
+    Варианты filter: filter=key
+    fullpens - фильтр подбора пишущих инструментов
+    pens - фильтр пишущих инструментов
+    fullpaper - фильтр подбора бумажно-беловых товаров
+    paper - фильтр бумажно-беловых товаров
+    fullaccess - подбор аксессуаров
+    access - фильтр аксессуаров
+
+    Варианты отображения товара: view=key
+    line - в строку (по для пишущих инструментов)
+    thumbs - в виде карточки
+
+    Указание баннера бренда: banner=path
+    path - путь к изображению, прим. /wa-data/public/site/themes/profitbuy/img/banner-no-image.jpg
+
+    col=?  количество элементов в колонке фильтра подбора настольных аксессуаров отдельных предметов
+
+*}
+
+
+
+{*<span style="background:red;">{$category.id}</span>*}
+
+<!--прелоадер-->
+<div id="page-preloader"><span class="spinner"></span></div>
+
+{*<span><pre>{$category.params|var_dump}</pre></span>*}
+
+{*{$category.params.filter}fullpens*}
+{*{$category.params.banner}/wa-data/public/site/themes/profitbuy/img/banner-fon.jpg*}
+
+
+{*если в доп.параметрах категории указано количество элементов в столбце отдель.предметов настол.аксессуаров, использовать это значение*}
+{if $category.params.col}
+    {$col_count = $category.params.col}
+{/if}
+
+
+{$get_params = $smarty.server.REQUEST_URI}
+
+
+<!-- NOTE:  подключение фильтра в зависимости от типа товара (установка флага)-->
+
+{$flag_podbor = false}{*флаг проверки является ли категория категорией подбора*}
+
+{if $category.id == 2}{$fullpens = true}{$cat_name = "Подбор пишущих инструментов"}{$flag_podbor = true}
+{elseif $category.id == 210}{$fullpaper = true}{$cat_name = "Подбор бумажно беловых товаров"}{$flag_podbor = true}
+{elseif $category.id == 252}{$fullaccess = true}{$cat_name = "Подбор настольных аксессуаров"}{$flag_podbor = true}
+{/if}
+
+
+{*дальше выбор фильтра по товарам*}
+{if !$flag_podbor}
+{* <span>Выбор фильтра для элементов</span> *}
+    {if $category.params.filter}{*в параметрах категории указан фильтр*}
+    <h1>{$category.params.filter}</h1>
+        {if $category.params.filter == "pens"}{$pens = true}{*фильтр пишущ.элементов*}
+        {elseif $category.params.filter == "paper"}{$paper = true}{*фильтр бумажно беловых элементов*}
+        {elseif $category.params.filter == "access"}{$access = true}{*фильтр настольных аксессуаров элементов*}
+        {else}
+            <em>Не удалось выбрать фильтр для данной категории! (см. category.html)</em>
+        {/if}
+
+    {else}{*в параметрах категории не указан фильтр, надо попытаться определить автоматически*}
+        {if strpos($get_params, "/pishushchie-instrumenty/")}{$pens = true}
+        {elseif strpos($get_params, "/bumazhno-belovye-tovary/")}{$paper = true}
+        {elseif strpos($get_params, "/nastolnye-aksessuary/")}{$access = true}{/if}
+    {/if}
+
+{/if}
+
+
+{*ОПРЕДЕЛЕНИЕ ВИДА ВЫВОДА ТОВАРА: УСТАНОВКА ФЛАГА, КОТОРЫЙ ИСПОЛЬЗУЕТСЯ В list-thumb.html*}
+
+{if $category.params.view}{*проверка, есть ли параметр вида отображения товара в параметрах категории*}
+    {if $category.params.view == "line"}
+        {$pens_cat_flag = true}
+    {elseif $category.params.view == "thumbs"}
+        {$pens_cat_flag = false}
+    {/if}
+
+{else}{*в доп.параметрах категории не указан вид отображения товара попытка подбора автоматически*}
+    {if strpos($get_params, "/pishushchie-instrumenty/")}
+        {$pens_cat_flag = true}
+    {elseif strpos($get_params, "/bumazhno-belovye-tovary/") || strpos($get_params, "/nastolnye-aksessuary/")}
+        {$pens_cat_flag = false}
+    {else}{*если не найдены параметры*}
+        <h1>Не удалось определить вид отображения товара в файле category.html!</h1>
+        {$pens_cat_flag = false}
+    {/if}
+{/if}
+
+
+
+
+
+
+
+{*Проверка на категории на бренд*}
+<!-- NOTE:  если категория товара, подгрузка фильтра по умолчанию-->
+
+
+{if $categories}{*проверка на точное соответствие*}
+    {foreach from=$categories item=category name=menu}{*from=$categories item=category full_url=menu*}
+        {if $category.name != "Пишущие инструменты" || $category.name != "Бумажно-беловые товары" || $category.name != "Настольные аксессуары"}
+
+            {if strpos($get_params, $category.full_url)}
+                {*{$pens = 0}{$fullpaper = 0}{$fullaccess = 0}*}
+                {$cat_name = $category.name}
+                    {*<h1>{$cat_name}</h1>*}
+                {$return}
+            {else}
+                {*<p>{$get_params} = {$category.full_url}</p>*}
+            {/if}
+        {/if}
+    {/foreach}
+{/if}
+
+
+
+
+
+{strip}
+
+<div class="fill-background">
+
+    <nav class="breadcrumbs art-breadcrumbs" itemprop="breadcrumb">
+        <a href="{$wa_url}">Главная</a> <span class="rarr">&#47;</span>
+        {if $wa_app_url != '/'}<a href="{$wa_app_url}">{$wa->shop->settings('name')}</a> <span class="rarr">&#47;</span>{/if}
+        {if !empty($breadcrumbs)}
+            {foreach $breadcrumbs as $breadcrumb}
+                {if $breadcrumb}
+                    <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a> <span class="rarr">&#47;</span>
+                {/if}
+            {/foreach}
+        {/if}
+        {*{if $cat_name}{$cat_name|escape}{else}{$category.name|escape}{/if}*}
+        {*{$category.name|escape}*}
+
+    </nav>
+
+</div>
+
+
+
+<div class="fill-background">
+
+    <h1 class="category-name art-category-name">
+        {if $category.name !== "Главная"}{$cat_name|escape}{*{$category.name|escape}*}{/if}
+    </h1>
+
+    {if 0 && shopWmimageincatPlugin::getCategoryImage($category.id, 'banner')}{* PLUGIN WMIMAGEINCAT: replace 0 to 1 to enable *}
+        <div class="image"><img src="{shopWmimageincatPlugin::getCategoryImage($category.id, 'banner')}" alt="{$category.name}" title="{$category.description|strip_tags}" /></div>
+    {/if}
+
+    <!-- plugin hook: 'frontend_category' -->
+    {* @event frontend_category.%plugin_id% *}
+    {foreach $frontend_category as $_}{$_}{/foreach}
+
+    <!-- subcategories -->{* PLUGIN WMIMAGEINCAT: replace 0 to 1 to enable *}
+    {*
+    {if 0 && $category.subcategories}
+        <ul class="piicsl">
+            {foreach $category.subcategories as $sc}
+                <li class="piicsl-item">
+                    <a href="{$sc.url}">
+                        <div class="piicsl-img">
+                            <img src="{if shopWmimageincatPlugin::getCategoryImage($sc.id, 'image')}{shopWmimageincatPlugin::getCategoryImage($sc.id, 'image')}{else}/wa-data/public/site/themes/profitbuy/img/no-image-big.png{/if}" alt="" />
+                        </div>
+                        <span class="piicsl-title">{$sc.name|escape}</span>
+                    </a>
+                </li>
+            {/foreach}
+        </ul>
+    {elseif $category.subcategories}
+        <ul class="sub-links">
+            {foreach $category.subcategories as $sc}
+                <li><a href="{$sc.url}">{$sc.name|escape}</a></li>
+            {/foreach}
+        </ul>
+    {/if}
+    *}
+
+    <!-- description -->
+    {if $category.description}
+        <div class="category-description">{$category.description}</div>
+    {/if}
+
+</div>
+
+{*здесь надо попробовать отсортировывать товар*}
+
+{*найденное решение!
+{$products = $wa->shop->products($product_id)}*}
+{*
+        {$products_ = $wa->shop->products($product_id)}
+        {$products = []}
+        {if $addition == 'viewed' && $addition_p}
+            {foreach explode(',', $addition_p) as $p_q}{$products[$p_q] = $products_[$p_q]}{/foreach}
+        {else}
+            {$products = $products_}
+        {/if}
+*}
+
+{*Картинка должна подставляться из параметров категории .., должна быть там прописана*}
+{if !$flag_podbor}{*не выводить баннер в подборе*}
+  <div class="art-banner-fon" style="background-image: url({if $category.params.banner}{$category.params.banner}{else}/wa-data/public/site/themes/profitbuy/img/banner-no-image.jpg{/if})"></div>
+{/if}
+
+
+{if !empty($filters) && ($theme_settings.filter_pos|escape == "content")}{* || empty($theme_settings.sidebar)*}
+
+    <!-- NOTE:  подключение фильтра с выбором в зависимости от ключа-->
+
+    {*ФИЛЬТРЫ ПОДБОРА*}
+    {if $fullpens}
+        <div class="fill-background">{include file="filter.pish.html"}</div>{*подбор пишущих инструментов*}
+    {elseif $fullpaper}
+        <div class="fill-background">{include file="filter.bum.belov.html"}</div>{*подбор бумажно-беловых*}
+    {elseif $fullaccess}
+        <div class="fill-background">{include file="filter.nastol.acsess.html"}</div>{*подбор настольных аксессуаров*}
+
+    {*ФИЛЬТР ТОВАРА*}
+    {elseif $pens}
+        <div class="fill-background">{include file="filter_pens_items.html"}</div>
+    {elseif $paper}
+        <div class="fill-background">{include file="filter.bum.belov.items.html"}</div>
+    {elseif $access}
+        <div class="fill-background">{include file="filter_pens_items.html"}</div>
+    {else}{*Если фильтр не удалось идентифицировать*}
+        <div class="fill-background">{include file="filter.collection.html"}</div>
+    {/if}
+{else}
+
+    <h5>Для данной категории не настроен фильтр либо отсутствуют товары!</h5>
+    
+{/if}
+
+
+
+
+<div id="product-list" class="fill-background">
+
+    {if !$products}
+        {if !empty($filters)}
+            {*[`No products were found.`]*}<h5>К сожалению ничего не найдено. Пожалуйста, <span id="clear-filter" style="color:#F65118; font-weight:bold;">сбросьте</span> параметры фильтра.</h5>
+        {else}
+            {if !$category.subcategories}[`This category does not contain any products.`]{/if}
+        {/if}
+    {else}
+
+        {$select_view = waRequest::cookie('shop_select_view', '', waRequest::TYPE_STRING)}
+        {if isset($category.params.select_view)}{$select_view = $select_view|default:$category.params.select_view}{/if}
+        {$select_view = $select_view|default:$theme_settings.select_view}
+        {include file='list-thumbs.html' sorting=!empty($category.params.enable_sorting) plp=true select_view=$select_view}
+    {/if}
+</div>
+
+{/strip}

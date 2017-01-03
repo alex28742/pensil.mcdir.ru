@@ -1,0 +1,139 @@
+<style>
+
+/*стили работают только для страницы Сравнение!! */
+
+/*убираю секцию выбора характеристик*/
+.sub-links{
+    display:none;
+}
+
+/*размер изображения    */
+table.compare td img {
+    height: auto !important;
+    margin: 10px auto;
+    max-height: 200px;
+    width: auto;
+    max-width: 230px;
+}
+
+.img-wrapper {
+    height: 200px;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+
+.compare-item-name-wrap {
+    height: 68px;
+    overflow: hidden;
+    text-align: center;
+}
+
+table.compare thead .name-wrapper{
+    padding:0;
+}
+
+.left-column {
+    min-width: 200px;
+}
+
+
+table.compare td {
+    /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+    min-width: 190px;
+    padding: 10px;
+}
+
+    .art-left-fon{
+        background-color: #e0e0e0;
+    }
+
+    .art-left-column{
+        background-color: #b3b4b7;
+        border: 1px solid #8d8d8d;
+        font-family: "Myriad Pro_bold";
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+
+    .art-compare tbody tr:nth-child(odd){
+        background-color: #d8d9da;
+    }
+
+    .art-compare tbody tr:nth-child(even){
+        background-color: #ececed;
+    }
+
+    .art-compare tbody tr:first-child th {
+        border-top: medium none;
+    }
+
+     .art-compare tbody tr:last-child th {
+        border-bottom: medium none;
+    }
+
+    .art-compare tbody tr:nth-child(odd) td {
+        border: 1px solid #858586;
+    }
+
+    .art-compare tbody tr:nth-child(even) td {
+        border-left: 1px solid #bbbabb;
+        border-right: 1px solid #bbbabb;
+    }
+
+    .art-compare td{
+        border: none;
+    }
+
+    .art-compare tbody tr:first-child td {
+    border-top: none !important;
+}
+
+.art-compare thead td{
+    text-align: center;
+}
+
+.caption_compare{
+    font-family: 'Myriad Pro_Semibold';
+    font-size: 48px;
+    text-transform: uppercase;
+}
+
+.art-compare-remove{
+    background: rgba(0, 0, 0, 0) url("/wa-data/public/site/themes/profitbuy/img/del.png") no-repeat scroll 40% center;
+    color: #26282f;
+    font-family: "Myriad Pro";
+    padding-left: 3rem;
+}
+
+.art-foto-table td{
+    border: 1px solid #a0a0a1 !important;
+}
+
+.art-compare-item-price{
+    color: #f55118;
+    font-family: 'Myriad Pro_Bold';
+    font-size: 30px;
+}
+
+.art-compare-item-price .ruble{
+    font-family: 'Myriad Pro';
+    text-transform: lowercase;
+}
+
+.art-compare-item-price .ruble:after{
+    content: '.';
+}
+
+.art-compare-item-name-wrap a{
+    font-family: 'Myriad Pro_Semibold';
+    font-size: 17px;
+    color: #26282f;
+}
+
+</style>

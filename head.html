@@ -1,0 +1,124 @@
+{* shop app css *}
+<link href="{$wa_active_theme_url}profitbuy.shop.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
+{*<link href="{$wa_active_theme_url}jquery.bxslider.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />*}
+<link href="{$wa_active_theme_url}owl.carousel.css?v2.0.0" rel="stylesheet" type="text/css" />
+
+{*
+{shopSort::setcookieVal('products_per_page',500)}
+
+{$temp = shopSort::setcookieVal('products_per_page',120)}
+*}
+
+
+
+{*стили Артёма*}
+<link href="/wa-content/font/ruble/MyriadPro/fontface.css" rel="stylesheet" type="text/css" />
+<link href="{$wa_active_theme_url}art-style.css?v2.0.0" rel="stylesheet" type="text/css" />
+<link href="{$wa_active_theme_url}art-media.css?v2.0.0" rel="stylesheet" type="text/css" />
+
+{*custom.css*}
+<link href="{$wa_active_theme_url}custom.css?v2.0.0" rel="stylesheet" type="text/css" />
+
+{*amazing.css *}
+<link href="{$wa_active_theme_url}amazing.css?v2.0.0" rel="stylesheet" type="text/css" />
+<!--[if lte IE 7]>
+<link href="{$wa_active_theme_url}ie.css?v2.0.0" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+
+{if strpos($smarty.server.HTTP_USER_AGENT, "Trident/")}
+<link href="{$wa_active_theme_url}ie.css?v2.0.0" rel="stylesheet" type="text/css" />
+{/if}
+
+{* shop app js *}
+<script type="text/javascript">
+( function ($, undefined) {
+    $.at = $.at || { };
+    $.at.plugins["jquery.countdowntimer"] = {
+        is_done: function () {
+            return !!$.fn.countdowntimer;
+        },
+        href: "{$wa_active_theme_url}jquery.countdownTimer.css",
+        src: "{$wa_active_theme_url}jquery.countdownTimer.min.js"
+    };
+})(jQuery);
+</script>
+<script type="text/javascript" src="{$wa_app_static_url}js/lazy.load.js?v{$wa->version()}"></script>
+{*<script type="text/javascript" src="{$wa_active_theme_url}jquery.bxslider.min.js?v{$wa_theme_version}"></script>*}
+<script type="text/javascript" src="{$wa_active_theme_url}owl.carousel.min.js?v2.0.0"></script>
+{*<script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-plugins/jquery.cookie.js?v{$wa->version(true)}"></script>*}
+<script type="text/javascript" src="{$wa_active_theme_url}jquery.cookie.min.js?v{$wa_theme_version}"></script>
+<script type="text/javascript" src="{$wa_active_theme_url}profitbuy.shop.min.js?v{$wa_theme_version}"></script>
+
+{*jquery.session*}
+<script type="text/javascript" src="{$wa_active_theme_url}jquery.session.js?v{$wa_theme_version}"></script>
+
+{*custom js*}
+<script type="text/javascript" src="{$wa_active_theme_url}a.amazing.js?v{$wa_theme_version}"></script>
+{*amazing.js*}
+{*<script type="text/javascript" src="{$wa_active_theme_url}amazing.js?v{$wa_theme_version}"></script>*}
+{*podbor.js*}
+<script type="text/javascript" src="{$wa_active_theme_url}podbor.js?v{$wa_theme_version}"></script>
+
+
+
+<!--Попытка обнаружения работы adblock-->
+<div class="google_advert">
+    <!-- Здесь размещается код рекламного блока -->
+    <img class="ad-detect" src="/wa-data/public/site/themes/profitbuy/img/back-top.png" />
+</div>
+<div class="no_advert" style="display:none;">
+    <!-- Блок, который будет показываться вместо блока с рекламой -->
+</div>
+
+<script>
+    //После окончательной загрузки страницы
+$(window).load(function () {
+    //Проверяем не занулилась ли высота блока с рекламой
+    if ( $('.google_advert').height() == 0 ) {
+        //Показываем скрытый блок — альтернативу блоку с рекламой
+        //$('.no_advert').show();
+        setInterval('alert("Отключите Adblock!")', 1000);
+    }
+});
+
+</script>
+
+
+
+
+
+
+{if $wa->shop->config('enable_2x')}
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-plugins/jquery.retina.min.js?v{$wa->version(true)}"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('.promo img').retina({ force_original_dimensions: false });
+            $('.product-list img,.product-info img,.cart img').retina();
+            $('.bestsellers img').retina();
+        });
+    </script>
+{/if}
+
+{if !empty($theme_settings.autofit) || !empty($filters)}
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.core.min.js?v{$wa->version(true)}"></script>
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js?v{$wa->version(true)}"></script>
+    {if !empty($theme_settings.autofit)}
+        <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.position.min.js?v{$wa->version(true)}"></script>
+        <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.autocomplete.min.js?v{$wa->version(true)}"></script>
+    {/if}
+    {if !empty($filters)}
+        <link href="{$wa_static_url}wa-content/css/jquery-ui/base/jquery.ui.slider.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js?v{$wa->version(true)}"></script>
+        <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.slider.min.js?v{$wa->version(true)}"></script>
+    {/if}
+{/if}
+
+{if !empty($nofollow)}
+    <!-- "nofollow" for pages not to be indexed, e.g. customer account -->
+    <meta name="robots" content="noindex,nofollow" />
+{/if}
+
+<!-- plugin hook: 'frontend_head' -->
+{* @event frontend_head.%plugin_id% *}
+{foreach $frontend_head as $_}{$_}{/foreach}

@@ -1,0 +1,163 @@
+/*скрытие выбора валюты*/
+.col-grid.currency.art-currency {
+    display: none;
+}
+
+
+/*панель пагинации*/
+.row-grid.plp {
+    display: none;
+}
+
+/*цвет заголовков названий товара*/
+#product-list h5 span{
+    color:#000;
+}
+
+/*заливка времени отработки скрипта*/
+.time-hide::after {
+    background: #000 none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 100001;
+    opacity: 0.5;
+}
+
+
+/*бордеры для элементов навигации главного меню при наведении*/
+
+.left-right-size-up{
+    /*width:110%;*/
+}
+
+/*выравнивание в линию характеристик в фильтре элементов*/
+.features-row-inline {
+    display: flex;
+    display: -webkit-flex;
+}
+  
+  /*стили изображений брендов на главной als*/
+.img-wrap-in-main {
+    /*border: 1px solid #cbcbcb;*/
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    transition: all 0.2s ease-out 0s;
+    width: 16%;
+    text-align: center;
+}
+.img-item > img {
+    max-height: 150px;
+    max-width:150px;
+}
+/*стили изображений брендов на главной als*/
+
+
+.sidebar-box .toggle-menu-child {
+    min-width: 100% !important;
+}
+
+nav.sidebar .material-icons.mi-2x {
+    display: none !important;
+}
+
+ul.base-menu.type3 .toggle-menu-child {
+    opacity: 1;
+    right: 0rem;
+}
+
+.toggle-menu, .toggle-filter, .toggle-menu-child {
+    background: transparent none repeat scroll 0 0;
+    border: medium none !important;
+    height: 100%;
+    min-width: 56px;
+    outline: medium none !important;
+    padding: 0;
+    position: absolute;
+    right: 0rem;
+    top: 0;
+}
+
+ul.base-menu li li a {
+    margin-left: 0rem !important;
+}
+
+.wrapper-features-items {
+    background-color: #efefef;
+}
+
+.wrapper-features-items .share-wrapper {
+    display: flex;
+    display: -webkit-flex;
+}
+
+
+
+.product-tab {
+    display: block !important;
+}
+
+
+.content .filters h5.collapsible + .filter-content {
+    display: block;
+}
+.filters h5.collapsible::after{
+    display:none;
+}
+
+.content .filters h5.collapsible {
+    background: #fff none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0px;
+
+
+}
+
+.filter-item-wrapper {
+    width: 200px;
+}
+
+.sidebar-box .btn-sub-form {
+    display: none;
+}
+
+.filter-item-wrapper .filters-reset{
+    display:none !important;
+}
+
+.prices-text {
+    display: flex;
+    height: 17px;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+    top: -12px;
+    width: 200px;
+}
+
+input.min, input.max {
+    display: none;
+}
+
+#art-vipadashka{
+    cursor:pointer;
+}
+
+.art-strelka.to-top {
+    top: -35px;
+    -moz-transform: rotate(180deg); 
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/*высота блока в сайдбаре*/
+.art-question-block {
+    padding: 15px 26px 48px !important;
+}
+
