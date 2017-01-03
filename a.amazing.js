@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    // first commit 
+    // скрипт с последними изменениями
     //   $.session.set('some key', 'a value');
 
     // $.session.get('some key');
@@ -32,6 +32,25 @@ $(document).ready(function() {
     //   $(this).attr('checked','checked');
 
     // });
+
+
+
+    $('.at-stylize-label').live('click', function() {
+        $('#id-collection-select .not-delete').removeClass('not-delete');
+        setTimeout(function() {
+            $('#id-collection-select .opt:not([disabled])').each(function() {
+                $(this).addClass('not-delete').show();
+
+            });
+
+            $('#id-select-otdelka .opt:not([disabled])').each(function() {
+                $(this).addClass('not-delete').show();
+
+            });
+
+
+        }, 3000);
+    });
 
 
     function hideEmptyBlocks() {
@@ -737,6 +756,7 @@ $(document).ready(function() {
 
     // добавление названия типа товара в thumb
     function addTypeName(type) {
+        if (type == "Тип пишущего узла") $('.prise-wrapper .type-uzel').css('display', 'none !important');
         $('.features td:contains(' + type + ')').each(function() {
             var val = $(this).next().html();
             $(this).closest('.pl-item-info-expandable.art-pl-item-info-expandable').children(':first').after('<span class="item-typename">' + val + '</span><hr class="art-thumbs-hr">');
@@ -745,7 +765,16 @@ $(document).ready(function() {
     }
 
     addTypeName("Тип товара");
-    // addTypeName("Тип пишущего узла");
+
+    if ($('.get').html()) {
+        if ($('.get').html().indexOf('addition=viewed') !== -1) { // если на странице сравнение
+            //addTypeName("Тип пишущего узла");// для ручек
+            setTimeout(function() {
+                $('.prise-wrapper .type-uzel').hide();
+            }, 500);
+
+        }
+    }
 
     ////////////////////////////////
 
