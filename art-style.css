@@ -8,6 +8,7 @@
     bottom: 0;
     background: #3B3D47;
     z-index: 100500;
+    opacity: 0.5;
 }
 
 #page-preloader .spinner {
@@ -18,7 +19,6 @@
     top: 50%;
     background: url('/wa-data/public/shop/themes/profitbuy/img/2.gif') no-repeat 50% 50%;
     margin: -16px 0 0 -16px;
-    z-index: 10050000;
 }
 
 
@@ -1213,7 +1213,10 @@ a#logo .logo-text {
 .art-li2 .hint a,
 .art-right-head .art-offline-wrapper a,
 .art-call-back-wrapper a,
-.art-nav-pills li a {
+.art-nav-pills li a,
+.art-mini-cart-cap a,
+.addition-wrapper .addition-button,
+.cart-summary-page .art-item-name a {
     text-decoration: none;
 }
 
@@ -1261,13 +1264,8 @@ a#logo .logo-text {
 }
 
 .thumbs .art-offers {
-    width: 202px;
+    width: 212px;
     background-color: transparent !important;
-}
-
-.thumbs .line-collection.t2 {
-    /*position: relative;*/
-    /*top: 2rem;*/
 }
 
 .thumbs .art-thumbs-down .submit-wrapper {
@@ -1278,10 +1276,6 @@ a#logo .logo-text {
     right: -1px;
     width: 60%;
     background-color: #fff;
-}
-
-.art-product-list.thumbs {
-    padding: 28px;
 }
 
 .thumbs .line-collection h2 {
