@@ -18,14 +18,14 @@
     top: 50%;
     background: url('/wa-data/public/shop/themes/profitbuy/img/2.gif') no-repeat 50% 50%;
     margin: -16px 0 0 -16px;
-    z-index: 200000;
+    z-index: 10050000;
 }
 
 
 /**********************************************************/
 
 
-/*скрываем текст возле логотипаa*/
+/*скрываем текст возле логотипа*/
 
 a#logo .logo-text {
     display: none;
